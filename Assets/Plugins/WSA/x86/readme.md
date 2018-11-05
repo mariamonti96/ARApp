@@ -1,0 +1,1 @@
+Copy vlUnitySDK x86 shared libraries for Windows Universal Apps in this directory.

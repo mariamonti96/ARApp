@@ -1,0 +1,45 @@
+{
+  "type": "VisionLibTrackerConfig",
+  "version": 1,
+  "meta": {
+    "author": "",
+    "description": "",
+    "name": "",
+    "vlTrackingConfig": {}
+  },
+  "tracker": {
+    "type": "modelTracker",
+    "version": 1,
+    "parameters": {
+      "models":[
+        {"name":"Piece000", "uri":"project_dir:/Piece000.obj","enabled":true },
+        {"name":"Piece001", "uri":"project_dir:/Piece001.obj","enabled":true },
+        {"name":"Piece002", "uri":"project_dir:/Piece002.obj","enabled":true },
+        {"name":"Piece003", "uri":"project_dir:/Piece003.obj","enabled":true }
+      ],
+      "minInlierRatioInit": 0.67,
+      "minInlierRatioTracking": 0.54,
+      "laplaceThreshold": 1,
+      "normalThreshold": 0.3,
+      "lineGradientThreshold": 40,
+      "lineSearchLengthInitRelative": 0.04125,
+      "lineSearchLengthTrackingRelative": 0.03125,
+      "keyFrameDistance": 5,
+      "metric": "m",
+      "showLineModel": true,
+      "initPose": {
+        "t": [
+          -10.9393949508667,
+          5.011094093322754,
+          118.51217651367188
+        ],
+        "q": [
+          0.896419882774353,
+          -0.23010770976543427,
+          0.09755703806877136,
+          0.3660115599632263
+        ]
+      }
+    }
+  }
+}

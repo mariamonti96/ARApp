@@ -1,0 +1,15 @@
+{
+    "type": "VisionLibTrackerConfig",
+    "version": 1,
+    "meta": {
+        "name": "Camera Calibration",
+        "description": "Configuration file for doing a calibration of the intrinsic camera parameters",
+        "author": "Fraunhofer IGD"
+    },
+    "tracker": {
+        "type": "cameraCalibration",
+        "version": 1,
+        "parameters": {
+        }
+    }
+}

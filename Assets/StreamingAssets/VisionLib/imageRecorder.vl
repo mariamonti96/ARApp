@@ -1,0 +1,19 @@
+{
+    "type": "VisionLibTrackerConfig",
+    "version": 1,
+    "meta": {
+        "name": "Simple Recording Example",
+        "description": "Simple configuration file allowing for recording image sequences",
+        "author": "Fraunhofer IGD"
+    },
+    "tracker": {
+        "type": "imageRecorder",
+        "version": 1,
+        "parameters": {
+            "recordOnStartup": true,
+            "recordToNewDir": true,
+            "recordURIPrefix": "local_storage_dir:records/record/image_",
+            "recordImageType": "jpg"
+        }
+    }
+}

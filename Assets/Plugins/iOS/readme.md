@@ -1,0 +1,1 @@
+Copy vlUnitySDK shared libraries for iOS into this directory.

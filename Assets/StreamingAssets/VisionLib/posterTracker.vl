@@ -1,0 +1,25 @@
+{
+    "type": "VisionLibTrackerConfig",
+    "version": 1,
+    "meta": {
+        "name": "PosterTrackerLeaves",
+        "description": "Tracker for a reference image",
+        "author": "Fraunhofer IGD"
+    },
+    "tracker": {
+        "type": "posterTracker",
+        "version": 1,
+        "parameters": {
+            "imageURI": "project_dir:leaves.png",
+            "realWidth": 269.0, // Width of the reference image image in mm
+            "transform": {
+                "t": [0.0, 0.0, 0.0],
+                //"r": [1.5707963, 0.0, 0.0] //  Rotation of 90 deg around x --> ground-plane in XZ
+                "r": [0.0, 0.0, 0.0]
+            },
+            "maxFramesFeaturePrediction": 20,
+            "extendibleTracking": false,
+            "debugLevel": 1
+        }
+    }
+}

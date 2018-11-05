@@ -1,0 +1,1 @@
+Copy vlUnitySDK x64 shared libraries for Windows, MacOS or Linux into this directory.

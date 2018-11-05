@@ -1,0 +1,1 @@
+Copy vlUnitySDK shared libraries for Android into this directory.
