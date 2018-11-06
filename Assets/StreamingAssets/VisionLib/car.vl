@@ -10,7 +10,7 @@
         "type": "modelTracker",
         "version": 1,
         "parameters": {
-          "modelURI": "project_dir:vr_controller_vive_1_5.obj",
+            "modelURI": "project_dir:controller.obj",
             "useColor": true,
             "metric": "m",
             "initPose": {
