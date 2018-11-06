@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: 3aa5abef169a5964899d11c217eccc43
+guid: 1d31d34a7ad7a674c9c38ae3e207019f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: whole_model_group1
+    100002: default
     400000: //RootNode
-    400002: whole_model_group1
-    2100000: whole_model_group1Mat
-    2300000: whole_model_group1
-    3300000: whole_model_group1
-    4300000: whole_model_group1
+    400002: default
+    2100000: defaultMat
+    2300000: default
+    3300000: default
+    4300000: default
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
