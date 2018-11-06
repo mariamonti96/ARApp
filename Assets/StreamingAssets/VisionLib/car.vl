@@ -10,7 +10,7 @@
         "type": "modelTracker",
         "version": 1,
         "parameters": {
-            "modelURI": "project_dir:car.obj",
+            "modelURI": "project_dir:controller.obj",
             "useColor": true,
             "metric": "m",
             "initPose": {

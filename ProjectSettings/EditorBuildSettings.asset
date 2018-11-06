@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleGroundScene.unity
     guid: f0d2686e037fe8248ba429ba159bcb17
+  - enabled: 1
+    path: Assets/Scenes/SimpleModelTrackerExample 1.unity
+    guid: 6e95768175a8608438fdab388a8bb071
   m_configObjects: {}
