@@ -16,7 +16,8 @@ public class PlaneManagerTest : MonoBehaviour
     public PlaneFinderBehaviour m_PlaneFinder;
     
     [Header("Plane, Mid-Air, & Placement Augmentations")]
-    public GameObject m_PlaneAugmentation;
+    //public GameObject m_PlaneAugmentation;
+    public GameObject m_PlacementAugmentation;
     public static bool GroundPlaneHitReceived, AstronautIsPlaced;
     
     public static bool AnchorExists
@@ -38,10 +39,11 @@ public class PlaneManagerTest : MonoBehaviour
     SmartTerrain m_SmartTerrain;
     PositionalDeviceTracker m_PositionalDeviceTracker;
     ContentPositioningBehaviour m_ContentPositioningBehaviour;
-    //TouchHandler m_TouchHandler;
-    //ProductPlacement m_ProductPlacement;
+    TouchHandlerTest m_TouchHandler;
+    ProductPlacement m_ProductPlacement;
     GroundPlaneTestUI m_GroundPlaneUI;
     AnchorBehaviour m_PlaneAnchor;
+    AnchorBehaviour m_PlacementAnchor;
     int AutomaticHitTestFrameCount;
     int m_AnchorCounter;
     bool uiHasBeenInitialized;
@@ -60,18 +62,18 @@ public class PlaneManagerTest : MonoBehaviour
 
         m_PlaneFinder.HitTestMode = HitTestMode.AUTOMATIC;
 
-        //m_ProductPlacement = FindObjectOfType<ProductPlacement>();
-        //m_TouchHandler = FindObjectOfType<TouchHandler>();
+        m_ProductPlacement = FindObjectOfType<ProductPlacement>();
+        m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
         m_GroundPlaneUI = FindObjectOfType<GroundPlaneTestUI>();
 
-        m_PlaneAnchor = m_PlaneAugmentation.GetComponentInParent<AnchorBehaviour>();
+        //m_PlaneAnchor = m_PlaneAugmentation.GetComponentInParent<AnchorBehaviour>();
         //m_MidAirAnchor = m_MidAirAugmentation.GetComponentInParent<AnchorBehaviour>();
-        //m_PlacementAnchor = m_PlacementAugmentation.GetComponentInParent<AnchorBehaviour>();
+        m_PlacementAnchor = m_PlacementAugmentation.GetComponentInParent<AnchorBehaviour>();
         //m_MidAirAnchor2 = m_MidAirAugmentation2.GetComponentInParent<AnchorBehaviour>();
 
-        UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, false);
+        //UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, false);
         //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation, false);
-        //UtilityHelper.EnableRendererColliderCanvas(m_PlacementAugmentation, false);
+        UtilityHelperTest.EnableRendererColliderCanvas(m_PlacementAugmentation, false);
         //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation2, false);
     }
 
@@ -84,8 +86,8 @@ public class PlaneManagerTest : MonoBehaviour
 
         GroundPlaneHitReceived = (AutomaticHitTestFrameCount == Time.frameCount);
 
-        //SetSurfaceIndicatorVisible(GroundPlaneHitReceived && (Input.touchCount == 0));
-        SetSurfaceIndicatorVisible(GroundPlaneHitReceived);
+        SetSurfaceIndicatorVisible(GroundPlaneHitReceived && (Input.touchCount == 0));
+        //SetSurfaceIndicatorVisible(GroundPlaneHitReceived);
     }
 
     void OnDestroy()
@@ -118,6 +120,13 @@ public class PlaneManagerTest : MonoBehaviour
         //    m_ProductPlacement.SetProductAnchor(null);
         //    m_PlacementAugmentation.PositionAt(result.Position);
         //}
+
+        if (!m_ProductPlacement.IsPlaced)
+        {
+            SetSurfaceIndicatorVisible(false);
+            m_ProductPlacement.SetProductAnchor(null);
+            m_PlacementAugmentation.PositionAt(result.Position);
+        }
     }
 
     public void HandleInteractiveHitTest(HitTestResult result)
@@ -144,41 +153,41 @@ public class PlaneManagerTest : MonoBehaviour
             //{
             //    case PlaneMode.GROUND:
 
-            m_ContentPositioningBehaviour.AnchorStage = m_PlaneAnchor;
-            m_ContentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
-            UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, true);
+            //        m_ContentPositioningBehaviour.AnchorStage = m_PlaneAnchor;
+            //        m_ContentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
+            //        UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, true);
 
-            // Astronaut should rotate toward camera with each placement
+            //         // Astronaut should rotate toward camera with each placement
 
 
-            m_PlaneAugmentation.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-            //m_PlaneAugmentation.transform.parent.localEulerAngles = new Vector3(0, -90, 0);
-            UtilityHelperTest.RotateTowardCamera(m_PlaneAugmentation);
+            //        m_PlaneAugmentation.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+            //        //m_PlaneAugmentation.transform.parent.localEulerAngles = new Vector3(0, -90, 0);
+            //        UtilityHelperTest.RotateTowardCamera(m_PlaneAugmentation);
 
-            Debug.Log("Transform " + m_PlaneAugmentation.transform.rotation.y);
+            //        Debug.Log("Transform " + m_PlaneAugmentation.transform.rotation.y);
             
 
-            AstronautIsPlaced = true;
+            //        AstronautIsPlaced = true;
 
             //        break;
 
-            //    case PlaneMode.PLACEMENT:
+                  //case PlaneMode.PLACEMENT:
 
-            //        if (!m_ProductPlacement.IsPlaced || TouchHandler.DoubleTap)
-            //        {
-            //            m_ContentPositioningBehaviour.AnchorStage = m_PlacementAnchor;
-            //            m_ContentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
-            //            UtilityHelper.EnableRendererColliderCanvas(m_PlacementAugmentation, true);
-            //        }
+            if (!m_ProductPlacement.IsPlaced || TouchHandlerTest.DoubleTap)
+            {
+                m_ContentPositioningBehaviour.AnchorStage = m_PlacementAnchor;
+                m_ContentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
+                UtilityHelperTest.EnableRendererColliderCanvas(m_PlacementAugmentation, true);
+            }
 
-            //        if (!m_ProductPlacement.IsPlaced)
-            //        {
-            //            m_ProductPlacement.SetProductAnchor(m_PlacementAnchor.transform);
-            //            m_TouchHandler.enableRotation = true;
-            //        }
+            if (!m_ProductPlacement.IsPlaced)
+            {
+                m_ProductPlacement.SetProductAnchor(m_PlacementAnchor.transform);
+                m_TouchHandler.enableRotation = true;
+            }
 
-            //        break;
-            //}
+            //break;
+        //}
         }
     }
 
@@ -226,40 +235,41 @@ public class PlaneManagerTest : MonoBehaviour
     //    }
     //}
 
-    //public void SetPlacementMode(bool active)
-    //{
-    //    if (active)
-    //    {
-    //        planeMode = PlaneMode.PLACEMENT;
-    //        m_GroundPlaneUI.UpdateTitle();
-    //        m_PlaneFinder.enabled = true;
-    //        m_MidAirPositioner.enabled = false;
-    //        m_TouchHandler.enableRotation = m_PlacementAugmentation.activeInHierarchy;
-    //    }
-    //}
+    public void SetPlacementMode(bool active)
+    {
+        if (active)
+        {
+            //planeMode = PlaneMode.PLACEMENT;
+            //m_GroundPlaneUI.UpdateTitle();
+            m_PlaneFinder.enabled = true;
+            //m_MidAirPositioner.enabled = false;
+            m_TouchHandler.enableRotation = m_PlacementAugmentation.activeInHierarchy;
+        }
+    }
 
     public void ResetScene()
     {
         Debug.Log("ResetScene() called.");
 
         // reset augmentations
-        m_PlaneAugmentation.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
-        m_PlaneAugmentation.transform.localEulerAngles = new Vector3(0, 0, 0);
-        UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, false);
+        //m_PlaneAugmentation.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        //m_PlaneAugmentation.transform.localEulerAngles = new Vector3(0, 0, 0);
+        //UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, false);
 
         //m_MidAirAugmentation.transform.position = Vector3.zero;
         //m_MidAirAugmentation.transform.localEulerAngles = Vector3.zero;
         //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation, false);
 
-        //m_ProductPlacement.Reset();
-        //UtilityHelper.EnableRendererColliderCanvas(m_PlacementAugmentation, false);
+        m_ProductPlacement.Reset();
+        UtilityHelperTest.EnableRendererColliderCanvas(m_PlacementAugmentation, false);
 
         DeleteAnchors();
-        //m_ProductPlacement.SetProductAnchor(null);
-        AstronautIsPlaced = false;
+        m_ProductPlacement.SetProductAnchor(null);
+        //AstronautIsPlaced = false;
         m_GroundPlaneUI.Reset();
-        SetGroundMode(true);
-        //m_TouchHandler.enableRotation = false;
+        //SetGroundMode(true);
+        SetPlacementMode(true);
+        m_TouchHandler.enableRotation = false;
     }
 
     public void ResetTrackers()
@@ -283,9 +293,9 @@ public class PlaneManagerTest : MonoBehaviour
 
     void DeleteAnchors()
     {
-        m_PlaneAnchor.UnConfigureAnchor();
+        //m_PlaneAnchor.UnConfigureAnchor();
         //m_MidAirAnchor.UnConfigureAnchor();
-        //m_PlacementAnchor.UnConfigureAnchor();
+        m_PlacementAnchor.UnConfigureAnchor();
         //m_MidAirAnchor2.UnConfigureAnchor();
         AnchorExists = DoAnchorsExist();
     }
