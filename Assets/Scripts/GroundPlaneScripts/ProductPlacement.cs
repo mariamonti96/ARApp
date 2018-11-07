@@ -95,7 +95,7 @@ public class ProductPlacement : MonoBehaviour
         //{
         //    shadowRenderer.enabled = chairRenderer.enabled = IsPlaced;
         //}
-        Debug.Log("IsPlaced " + IsPlaced);
+        Debug.Log("Inside ProductPlacement Update");
         if (IsPlaced)
         {
             Debug.Log("Inside Update, we are setting the RotationIndication to active");
