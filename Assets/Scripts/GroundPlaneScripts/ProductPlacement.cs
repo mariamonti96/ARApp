@@ -51,7 +51,7 @@ public class ProductPlacement : MonoBehaviour
         
         objectRenderer = GetComponent<MeshRenderer>();
 
-        objectMaterial = Resources.Load<Material>("Assets/Models/Materials/defaultMat");
+        objectMaterial = Resources.Load<Material>("defaultMat");
         
         //chairMaterialsTransparent = new Material[]
         //{
@@ -124,7 +124,9 @@ public class ProductPlacement : MonoBehaviour
         }
         else
         {
+            
             m_RotationIndicator.SetActive(false);
+            Debug.Log("Setting RotationIndicator to false");
             m_TranslationIndicator.SetActive(false);
         }
 
