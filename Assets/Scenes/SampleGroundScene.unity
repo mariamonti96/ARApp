@@ -2976,7 +2976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465b0c5bd58c31c4d9c40ed09cb8a990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AugmentationObject: {fileID: 2114370149}
+  m_AugmentationObject: {fileID: 2114370153}
   enableRotation: 0
   enablePinchScaling: 0
 --- !u!114 &2114370152
@@ -2994,3 +2994,8 @@ MonoBehaviour:
   m_RotationIndicator: {fileID: 673977653}
   Floor: {fileID: 572373859}
   ProductSize: 1
+--- !u!4 &2114370153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 39a9a383960ab45e6a3af8e756c22d19,
+    type: 3}
+  m_PrefabInternal: {fileID: 2114370147}

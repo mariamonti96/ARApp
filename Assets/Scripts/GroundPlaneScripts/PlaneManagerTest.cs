@@ -106,7 +106,7 @@ public class PlaneManagerTest : MonoBehaviour
 
     public void HandleAutomaticHitTest(HitTestResult result)
     {
-        Debug.Log("WE ARE INSIDE HandleAutomaticHitTest");
+        //Debug.Log("WE ARE INSIDE HandleAutomaticHitTest");
         AutomaticHitTestFrameCount = Time.frameCount;
 
         if (!uiHasBeenInitialized)
@@ -131,7 +131,7 @@ public class PlaneManagerTest : MonoBehaviour
 
     public void HandleInteractiveHitTest(HitTestResult result)
     {
-        Debug.Log("WE ARE INSIDE HandleInteractiveHitTest");
+        //Debug.Log("WE ARE INSIDE HandleInteractiveHitTest");
         if (result == null)
         {
             Debug.LogError("Invalid hit test result!");
