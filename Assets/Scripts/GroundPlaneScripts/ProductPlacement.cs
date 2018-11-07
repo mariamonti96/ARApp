@@ -140,6 +140,7 @@ public class ProductPlacement : MonoBehaviour
     {
         if (transform)
         {
+            Debug.Log("Setting IsPlaced to true");
             IsPlaced = true;
             gameObject.transform.SetParent(transform);
             gameObject.transform.localPosition = Vector3.zero;
