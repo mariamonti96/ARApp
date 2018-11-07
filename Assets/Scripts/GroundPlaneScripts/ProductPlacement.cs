@@ -51,11 +51,8 @@ public class ProductPlacement : MonoBehaviour
         Debug.Log("AAAAAAA");
         objectRenderer = GetComponent<MeshRenderer>();
 
-        objectMaterial = new Material(Resources.Load<Material>("defaultMat"));
-        if(objectMaterial == null)
-        {
-            Debug.Log("objectMaterial NULL");
-        }
+        objectMaterial = Resources.Load<Material>("defaultMat");
+        
         //chairMaterialsTransparent = new Material[]
         //{
         //    Resources.Load<Material>("ChairBodyTransparent"),
@@ -88,6 +85,7 @@ public class ProductPlacement : MonoBehaviour
     {
         //if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.PLACEMENT)
         //{
+        Debug.Log("Inside ProductPlacement Update");
         objectRenderer.enabled = (IsPlaced || PlaneManagerTest.GroundPlaneHitReceived);
         EnablePreviewModeTransparency(!IsPlaced);
         if (!IsPlaced)
@@ -97,7 +95,7 @@ public class ProductPlacement : MonoBehaviour
         //{
         //    shadowRenderer.enabled = chairRenderer.enabled = IsPlaced;
         //}
-        Debug.Log("Inside ProductPlacement Update");
+        
         if (IsPlaced)
         {
             Debug.Log("Inside Update, we are setting the RotationIndication to active");
