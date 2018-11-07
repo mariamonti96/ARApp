@@ -48,7 +48,7 @@ public class ProductPlacement : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("AAAAAAA");
+        
         objectRenderer = GetComponent<MeshRenderer>();
 
         objectMaterial = Resources.Load<Material>("defaultMat");
@@ -85,8 +85,9 @@ public class ProductPlacement : MonoBehaviour
     {
         //if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.PLACEMENT)
         //{
-        Debug.Log("Inside ProductPlacement Update");
+        
         objectRenderer.enabled = (IsPlaced || PlaneManagerTest.GroundPlaneHitReceived);
+        Debug.Log("Inside ProductPlacement Update");
         EnablePreviewModeTransparency(!IsPlaced);
         if (!IsPlaced)
             UtilityHelperRes.RotateTowardCamera(gameObject);
