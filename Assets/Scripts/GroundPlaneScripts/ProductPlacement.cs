@@ -132,7 +132,7 @@ public class ProductPlacement : MonoBehaviour
     {
         transform.position = Vector3.zero;
         transform.localEulerAngles = Vector3.zero;
-        transform.localScale = ProductScaleVector;
+        //transform.localScale = ProductScaleVector;
     }
 
     public void SetProductAnchor(Transform transform)

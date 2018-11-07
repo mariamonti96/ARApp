@@ -268,8 +268,9 @@ public class PlaneManagerTest : MonoBehaviour
         //AstronautIsPlaced = false;
         m_GroundPlaneUI.Reset();
         //SetGroundMode(true);
-        SetPlacementMode(true);
+        
         m_TouchHandler.enableRotation = false;
+        SetPlacementMode(true);
     }
 
     public void ResetTrackers()
