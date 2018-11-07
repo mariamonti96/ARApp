@@ -82,6 +82,7 @@ public class TouchHandlerTest : MonoBehaviour
 
             if (enableRotation)
             {
+                Debug.Log("rotation enabled");
                 m_AugmentationObject.localEulerAngles = cachedAugmentationRotation - new Vector3(0, angleDelta * 3f, 0);
             }
             if (enableRotation && enablePinchScaling)

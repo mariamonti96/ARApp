@@ -101,6 +101,7 @@ public class ProductPlacement : MonoBehaviour
         {
             
             m_RotationIndicator.SetActive(Input.touchCount == 2);
+            Debug.Log("Input.touchCount is " + Input.touchCount);
             Debug.Log("Is RotationIndicator active?" + m_RotationIndicator.activeSelf);
             m_TranslationIndicator.SetActive(
                 (TouchHandlerTest.IsSingleFingerDragging || TouchHandlerTest.IsSingleFingerStationary) && !m_GroundPlaneUI.IsCanvasButtonPressed());

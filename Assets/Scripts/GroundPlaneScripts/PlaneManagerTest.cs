@@ -244,6 +244,8 @@ public class PlaneManagerTest : MonoBehaviour
             m_PlaneFinder.enabled = true;
             //m_MidAirPositioner.enabled = false;
             m_TouchHandler.enableRotation = m_PlacementAugmentation.activeInHierarchy;
+            if (m_PlacementAugmentation.activeInHierarchy)
+                Debug.Log("the placement is active");
         }
     }
 
