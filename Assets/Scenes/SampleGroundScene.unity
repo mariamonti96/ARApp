@@ -2978,7 +2978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AugmentationObject: {fileID: 2114370153}
   enableRotation: 0
-  enablePinchScaling: 0
+  enablePinchScaling: 1
 --- !u!114 &2114370152
 MonoBehaviour:
   m_ObjectHideFlags: 0
