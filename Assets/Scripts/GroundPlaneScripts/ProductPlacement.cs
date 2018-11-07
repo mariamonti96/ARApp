@@ -47,6 +47,8 @@ public class ProductPlacement : MonoBehaviour
     #region MONOBEHAVIOUR_METHODS
     void Start()
     {
+
+        Debug.Log("AAAAAAA");
         objectRenderer = GetComponent<MeshRenderer>();
 
         objectMaterial = new Material(Resources.Load<Material>("defaultMat"));
