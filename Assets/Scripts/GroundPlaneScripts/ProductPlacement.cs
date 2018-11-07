@@ -95,6 +95,7 @@ public class ProductPlacement : MonoBehaviour
 
         if (IsPlaced)
         {
+            Debug.Log("Inside Update, we are setting the RotationIndication to active");
             m_RotationIndicator.SetActive(Input.touchCount == 2);
 
             m_TranslationIndicator.SetActive(
