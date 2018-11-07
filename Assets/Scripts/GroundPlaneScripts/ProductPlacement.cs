@@ -50,7 +50,10 @@ public class ProductPlacement : MonoBehaviour
         objectRenderer = GetComponent<MeshRenderer>();
 
         objectMaterial = new Material(Resources.Load<Material>("defaultMat"));
-
+        if(objectMaterial == null)
+        {
+            Debug.Log("objectMaterial NULL");
+        }
         //chairMaterialsTransparent = new Material[]
         //{
         //    Resources.Load<Material>("ChairBodyTransparent"),
@@ -84,7 +87,7 @@ public class ProductPlacement : MonoBehaviour
         //if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.PLACEMENT)
         //{
         objectRenderer.enabled = (IsPlaced || PlaneManagerTest.GroundPlaneHitReceived);
-        //EnablePreviewModeTransparency(!IsPlaced);
+        EnablePreviewModeTransparency(!IsPlaced);
         if (!IsPlaced)
             UtilityHelperRes.RotateTowardCamera(gameObject);
         //}
@@ -155,12 +158,15 @@ public class ProductPlacement : MonoBehaviour
     #endregion // PUBLIC_METHODS
 
 
-    //#region PRIVATE_METHODS
-    //void EnablePreviewModeTransparency(bool previewEnabled)
-    //{
-    //    chairRenderer.materials = previewEnabled ? chairMaterialsTransparent : chairMaterials;
-    //    shadowRenderer.material = previewEnabled ? ChairShadowTransparent : ChairShadow;
-    //}
-    //#endregion // PRIVATE_METHODS
+    #region PRIVATE_METHODS
+    void EnablePreviewModeTransparency(bool previewEnabled)
+    {
+        if (!previewEnabled)
+        {
+            objectRenderer.material = objectMaterial;
+        }
+        //shadowRenderer.material = previewEnabled ? ChairShadowTransparent : ChairShadow;
+    }
+    #endregion // PRIVATE_METHODS
 
 }
