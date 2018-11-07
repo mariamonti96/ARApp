@@ -51,7 +51,7 @@ public class ProductPlacement : MonoBehaviour
         
         objectRenderer = GetComponent<MeshRenderer>();
 
-        objectMaterial = Resources.Load<Material>("Assets/Models/Materials/defaultMat.mat");
+        objectMaterial = Resources.Load<Material>("Assets/Models/Materials/defaultMat");
         
         //chairMaterialsTransparent = new Material[]
         //{
