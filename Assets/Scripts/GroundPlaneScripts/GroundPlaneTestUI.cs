@@ -35,8 +35,8 @@ public class GroundPlaneTestUI : MonoBehaviour
     PointerEventData m_PointerEventData;
     EventSystem m_EventSystem;
 
-    //ProductPlacementTest m_ProductPlacement;
-    //TouchHandlerTest m_TouchHandler;
+    ProductPlacement m_ProductPlacement;
+    TouchHandlerTest m_TouchHandler;
 
     Image m_TrackerStatusImage;
     #endregion // PRIVATE_MEMBERS
@@ -54,8 +54,8 @@ public class GroundPlaneTestUI : MonoBehaviour
         m_TrackerStatus.text = "";
         m_TrackerStatusImage = m_TrackerStatus.GetComponentInParent<Image>();
 
-        //m_ProductPlacement = FindObjectOfType<ProductPlacementTest>();
-        //m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
+        m_ProductPlacement = FindObjectOfType<ProductPlacement>();
+        m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
 
         m_GraphicRayCaster = FindObjectOfType<GraphicRaycaster>();
         m_EventSystem = FindObjectOfType<EventSystem>();
@@ -65,10 +65,15 @@ public class GroundPlaneTestUI : MonoBehaviour
 
     void Update()
     {
-        if (PlaneManagerTest.AstronautIsPlaced)
+        //if (PlaneManagerTest.AstronautIsPlaced)
+        //{
+        //    m_ResetButton.interactable = true;
+
+        //}
+
+        if (m_ProductPlacement.IsPlaced)
         {
             m_ResetButton.interactable = true;
-           
         }
 
         m_TrackerStatusImage.enabled = !string.IsNullOrEmpty(m_TrackerStatus.text);
@@ -108,7 +113,10 @@ public class GroundPlaneTestUI : MonoBehaviour
             //(PlaneManager.planeMode == PlaneManager.PlaneMode.GROUND ||
             //PlaneManager.planeMode == PlaneManager.PlaneMode.PLACEMENT) ? 1 : 0;
 
-            m_ScreenReticle.alpha = 1;
+            //If GROUND
+            //m_ScreenReticle.alpha = 1;
+            //If PLACEMENT
+            m_ScreenReticle.alpha = 0;
 
             //m_Instructions.transform.parent.gameObject.SetActive(true);
             //m_Instructions.enabled = true;
