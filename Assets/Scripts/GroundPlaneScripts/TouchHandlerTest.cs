@@ -15,7 +15,7 @@ public class TouchHandlerTest : MonoBehaviour
 
     [HideInInspector]
     public bool enableRotation;
-    public bool enablePinchScaling;
+    public bool enablePinchScaling = true;
 
     public static bool DoubleTap
     {
