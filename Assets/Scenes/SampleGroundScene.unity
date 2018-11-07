@@ -2993,4 +2993,4 @@ MonoBehaviour:
   m_TranslationIndicator: {fileID: 2082744197}
   m_RotationIndicator: {fileID: 673977653}
   Floor: {fileID: 572373859}
-  ProductSize: 0.1
+  ProductSize: 1

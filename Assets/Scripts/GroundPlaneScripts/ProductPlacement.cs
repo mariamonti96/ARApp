@@ -21,7 +21,7 @@ public class ProductPlacement : MonoBehaviour
 
     [Header("Placement Augmentation Size Range")]
     [Range(0.1f, 2.0f)]
-    public float ProductSize = 0.65f;
+    public float ProductSize = 1.0f;
     #endregion // PUBLIC_MEMBERS
 
 
@@ -51,7 +51,7 @@ public class ProductPlacement : MonoBehaviour
         
         objectRenderer = GetComponent<MeshRenderer>();
 
-        objectMaterial = Resources.Load<Material>("defaultMat");
+        objectMaterial = Resources.Load<Material>("Assets/Models/Materials/defaultMat.mat");
         
         //chairMaterialsTransparent = new Material[]
         //{
@@ -99,9 +99,9 @@ public class ProductPlacement : MonoBehaviour
         
         if (IsPlaced)
         {
-            Debug.Log("Inside Update, we are setting the RotationIndication to active");
+            
             m_RotationIndicator.SetActive(Input.touchCount == 2);
-
+            Debug.Log("Is RotationIndicator active?" + m_RotationIndicator.activeSelf);
             m_TranslationIndicator.SetActive(
                 (TouchHandlerTest.IsSingleFingerDragging || TouchHandlerTest.IsSingleFingerStationary) && !m_GroundPlaneUI.IsCanvasButtonPressed());
 
@@ -144,7 +144,7 @@ public class ProductPlacement : MonoBehaviour
     {
         if (transform)
         {
-            Debug.Log("Setting IsPlaced to true");
+            //Debug.Log("Setting IsPlaced to true");
             IsPlaced = true;
             gameObject.transform.SetParent(transform);
             gameObject.transform.localPosition = Vector3.zero;
