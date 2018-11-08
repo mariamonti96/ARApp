@@ -21,6 +21,7 @@ public class GroundPlaneTestUI : MonoBehaviour
 
     [Header("UI Buttons")]
     public Button m_ResetButton;
+    public Toggle m_TGOToggle;
     //public Toggle m_PlacementToggle, m_GroundToggle, m_MidAirToggle, m_MidAirToggle2;
     #endregion // PUBLIC_MEMBERS
 
@@ -49,6 +50,7 @@ public class GroundPlaneTestUI : MonoBehaviour
         //m_GroundToggle.interactable = m_PlacementToggle.interactable = 
         //        m_MidAirToggle2.interactable = false;
         m_ResetButton.interactable = false;
+        m_TGOToggle.interactable = false;
 
         //m_Title.text = TITLE_PLACEMENT;
         m_TrackerStatus.text = "";
@@ -157,7 +159,7 @@ public class GroundPlaneTestUI : MonoBehaviour
         
 
 
-        //m_PlacementToggle.isOn = true;
+        m_PlacementToggle.isOn = true;
     }
 
     //public void UpdateTitle()
@@ -182,7 +184,7 @@ public class GroundPlaneTestUI : MonoBehaviour
     public bool InitializeUI()
     {
         // Runs only once after first successful Automatic hit test
-        //m_PlacementToggle.interactable = true;
+        m_TGOToggle.interactable = true;
         //m_GroundToggle.interactable = true;
 
         if (Vuforia.VuforiaRuntimeUtilities.IsPlayMode())
@@ -196,7 +198,7 @@ public class GroundPlaneTestUI : MonoBehaviour
         m_ResetButton.interactable = true;
 
         // Make the PlacementToggle active
-        //m_PlacementToggle.isOn = true;
+        m_PlacementToggle.isOn = true;
 
         return true;
     }
