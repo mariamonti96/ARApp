@@ -1826,7 +1826,7 @@ GameObject:
   - component: {fileID: 1406753187}
   - component: {fileID: 1406753186}
   m_Layer: 5
-  m_Name: Toggle_Placement
+  m_Name: Toggle_TGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1956,6 +1956,7 @@ MonoBehaviour:
   m_TrackerStatus: {fileID: 1598859442}
   m_ScreenReticle: {fileID: 1728286846}
   m_ResetButton: {fileID: 1012216901}
+  m_TGOToggle: {fileID: 1406753187}
 --- !u!4 &1439771673
 Transform:
   m_ObjectHideFlags: 0
