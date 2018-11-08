@@ -272,7 +272,7 @@ public class PlaneManagerTest : MonoBehaviour
         //SetGroundMode(true);
         
         m_TouchHandler.enableRotation = false;
-        SetPlacementMode(true);
+        //SetPlacementMode(true);
     }
 
     public void ResetTrackers()
