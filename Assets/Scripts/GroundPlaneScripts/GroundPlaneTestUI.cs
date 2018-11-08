@@ -159,7 +159,7 @@ public class GroundPlaneTestUI : MonoBehaviour
         
 
 
-        m_PlacementToggle.isOn = true;
+        m_TGOToggle.isOn = true;
     }
 
     //public void UpdateTitle()
@@ -198,7 +198,7 @@ public class GroundPlaneTestUI : MonoBehaviour
         m_ResetButton.interactable = true;
 
         // Make the PlacementToggle active
-        m_PlacementToggle.isOn = true;
+        m_TGOToggle.isOn = true;
 
         return true;
     }
