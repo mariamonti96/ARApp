@@ -86,11 +86,11 @@ public class ProductPlacement : MonoBehaviour
         //if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.PLACEMENT)
         //{
         
-        objectRenderer.enabled = (IsPlaced || PlaneManagerTest.GroundPlaneHitReceived);
+        objectRenderer.enabled = (IsPlaced);
         Debug.Log("Inside ProductPlacement Update");
-        EnablePreviewModeTransparency(!IsPlaced);
-        if (!IsPlaced)
-            UtilityHelperRes.RotateTowardCamera(gameObject);
+        //EnablePreviewModeTransparency(!IsPlaced);
+        //if (!IsPlaced)
+        //    UtilityHelperRes.RotateTowardCamera(gameObject);
         //}
         //else
         //{
@@ -127,7 +127,7 @@ public class ProductPlacement : MonoBehaviour
         {
             
             m_RotationIndicator.SetActive(false);
-            Debug.Log("Setting RotationIndicator to false");
+           
             m_TranslationIndicator.SetActive(false);
         }
 
@@ -163,14 +163,14 @@ public class ProductPlacement : MonoBehaviour
 
 
     #region PRIVATE_METHODS
-    void EnablePreviewModeTransparency(bool previewEnabled)
-    {
-        if (!previewEnabled)
-        {
-            objectRenderer.material = objectMaterial;
-        }
-        //shadowRenderer.material = previewEnabled ? ChairShadowTransparent : ChairShadow;
-    }
+    //void EnablePreviewModeTransparency(bool previewEnabled)
+    //{
+    //    if (!previewEnabled)
+    //    {
+    //        objectRenderer.material = objectMaterial;
+    //    }
+    //    //shadowRenderer.material = previewEnabled ? ChairShadowTransparent : ChairShadow;
+    //}
     #endregion // PRIVATE_METHODS
 
 }
