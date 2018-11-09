@@ -135,11 +135,17 @@ public class PlaneManagerTest : MonoBehaviour
         //    m_PlacementAugmentation.PositionAt(result.Position);
         //}
 
-        if (!m_ProductPlacement.IsPlaced)
+        if (planeMode == PlaneMode.TGO && !m_TGOProductPlacement.IsPlaced)
         {
             SetSurfaceIndicatorVisible(false);
-            m_ProductPlacement.SetProductAnchor(null);
-            m_PlacementAugmentation.PositionAt(result.Position);
+            m_TGOProductPlacement.SetProductAnchor(null);
+            m_TGOAugmentation.PositionAt(result.Position);
+        }
+        else if(planeMode == PlaneMode.BEPI && !m_BEPIProductPlacement.IsPlaced)
+        {
+            SetSurfaceIndicatorVisible(false);
+            m_BEPIProductPlacement.SetProductAnchor(null);
+            m_BEPIAugmentation.PositionAt(result.Position);
         }
     }
 
