@@ -21,7 +21,10 @@ public class GroundPlaneTestUI : MonoBehaviour
 
     [Header("UI Buttons")]
     public Button m_ResetButton;
-    public Toggle m_TGOToggle;
+    public Toggle m_TGOToggle, m_BEPIToggle;
+
+    public GameObject m_TGOAugmentation;
+    public GameObject m_BEPIAugmentation;
     //public Toggle m_PlacementToggle, m_GroundToggle, m_MidAirToggle, m_MidAirToggle2;
     #endregion // PUBLIC_MEMBERS
 
@@ -36,7 +39,8 @@ public class GroundPlaneTestUI : MonoBehaviour
     PointerEventData m_PointerEventData;
     EventSystem m_EventSystem;
 
-    ProductPlacement m_ProductPlacement;
+    ProductPlacement m_TGOProductPlacement;
+    ProductPlacement m_BEPIProductPlacement;
     TouchHandlerTest m_TouchHandler;
 
     Image m_TrackerStatusImage;
@@ -51,12 +55,14 @@ public class GroundPlaneTestUI : MonoBehaviour
         //        m_MidAirToggle2.interactable = false;
         m_ResetButton.interactable = false;
         m_TGOToggle.interactable = false;
+        m_BEPIToggle.interactable = false;
 
         //m_Title.text = TITLE_PLACEMENT;
         m_TrackerStatus.text = "";
         m_TrackerStatusImage = m_TrackerStatus.GetComponentInParent<Image>();
 
-        m_ProductPlacement = FindObjectOfType<ProductPlacement>();
+        m_TGOProductPlacement = m_TGOAugmentation.GetComponent<ProductPlacement>();
+        m_BEPIProductPlacement = m_BEPIAugmentation.GetComponent<ProductPlacement>();
         m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
 
         m_GraphicRayCaster = FindObjectOfType<GraphicRaycaster>();
@@ -73,7 +79,7 @@ public class GroundPlaneTestUI : MonoBehaviour
 
         //}
 
-        if (m_ProductPlacement.IsPlaced)
+        if (m_TGOProductPlacement.IsPlaced || m_BEPIProductPlacement.IsPlaced)
         {
             m_ResetButton.interactable = true;
         }
@@ -156,7 +162,7 @@ public class GroundPlaneTestUI : MonoBehaviour
         //m_ResetButton.interactable = m_MidAirToggle.interactable = false;
         m_ResetButton.interactable = false;
         //PlaneManagerTest.SetGroundMode();
-        
+
 
 
         m_TGOToggle.isOn = true;
@@ -185,6 +191,7 @@ public class GroundPlaneTestUI : MonoBehaviour
     {
         // Runs only once after first successful Automatic hit test
         m_TGOToggle.interactable = true;
+        m_BEPIToggle.interactable = true;
         //m_GroundToggle.interactable = true;
 
         if (Vuforia.VuforiaRuntimeUtilities.IsPlayMode())
@@ -195,7 +202,8 @@ public class GroundPlaneTestUI : MonoBehaviour
         }
         //m_MidAirToggle.interactable = true;
         //m_MidAirToggle2.interactable = true;
-        m_ResetButton.interactable = true;
+        //m_ResetButton.interactable = true;
+
 
         // Make the PlacementToggle active
         m_TGOToggle.isOn = true;
