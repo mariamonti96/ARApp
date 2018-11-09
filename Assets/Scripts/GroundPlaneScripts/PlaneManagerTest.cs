@@ -47,8 +47,10 @@ public class PlaneManagerTest : MonoBehaviour
     PositionalDeviceTracker m_PositionalDeviceTracker;
     ContentPositioningBehaviour m_ContentPositioningBehaviour;
     TouchHandlerTest m_TouchHandler;
+
     ProductPlacement m_TGOProductPlacement;
     ProductPlacement m_BEPIProductPlacement;
+
     GroundPlaneTestUI m_GroundPlaneUI;
     //AnchorBehaviour m_PlaneAnchor;
     AnchorBehaviour m_TGOAnchor, m_BEPIAnchor;
@@ -71,8 +73,8 @@ public class PlaneManagerTest : MonoBehaviour
         m_PlaneFinder.HitTestMode = HitTestMode.AUTOMATIC;
 
         //m_ProductPlacement = FindObjectOfType<ProductPlacement>();
-        m_TGOProductPlacement = m_TGOAugmentation.GetComponent<ProductPlacement>();
-        m_BEPIProductPlacement = m_BEPIAugmentation.GetComponent<ProductPlacement>();
+        m_TGOProductPlacement = m_TGOAugmentation.GetComponentInChildren<ProductPlacement>();
+        m_BEPIProductPlacement = m_BEPIAugmentation.GetComponentInChildren<ProductPlacement>();
         m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
         m_GroundPlaneUI = FindObjectOfType<GroundPlaneTestUI>();
 
@@ -133,12 +135,12 @@ public class PlaneManagerTest : MonoBehaviour
         //    m_PlacementAugmentation.PositionAt(result.Position);
         //}
 
-        //if (!m_ProductPlacement.IsPlaced)
-        //{
-        //    SetSurfaceIndicatorVisible(false);
-        //    m_ProductPlacement.SetProductAnchor(null);
-        //    m_PlacementAugmentation.PositionAt(result.Position);
-        //}
+        if (!m_ProductPlacement.IsPlaced)
+        {
+            SetSurfaceIndicatorVisible(false);
+            m_ProductPlacement.SetProductAnchor(null);
+            m_PlacementAugmentation.PositionAt(result.Position);
+        }
     }
 
     public void HandleInteractiveHitTest(HitTestResult result)
