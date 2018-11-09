@@ -8,7 +8,7 @@ countries.
 using UnityEngine;
 using Vuforia;
 
-public class ProductPlacement : MonoBehaviour
+public class BEPIProductPlacement : MonoBehaviour
 {
 
     #region PUBLIC_MEMBERS

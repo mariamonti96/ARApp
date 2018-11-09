@@ -1332,7 +1332,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: faa501f20b46e42a1929e40edb571cab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -6.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa501f20b46e42a1929e40edb571cab, type: 3}
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   m_AugmentationObject: {fileID: 882138223}
   enableRotation: 0
   enablePinchScaling: 1
---- !u!114 &882138226
+--- !u!114 &882138227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 882138224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b6207b0f3640c04c9ba94adee609587, type: 3}
+  m_Script: {fileID: 11500000, guid: 44b0228ba6abc0043a8fca7cfa49ba9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_TranslationIndicator: {fileID: 104495824}

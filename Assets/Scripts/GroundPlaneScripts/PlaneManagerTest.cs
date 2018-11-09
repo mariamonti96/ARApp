@@ -48,8 +48,8 @@ public class PlaneManagerTest : MonoBehaviour
     ContentPositioningBehaviour m_ContentPositioningBehaviour;
     TouchHandlerTest m_TouchHandler;
 
-    ProductPlacement m_TGOProductPlacement;
-    ProductPlacement m_BEPIProductPlacement;
+    TGOProductPlacement m_TGOProductPlacement;
+    BEPIProductPlacement m_BEPIProductPlacement;
 
     GroundPlaneTestUI m_GroundPlaneUI;
     //AnchorBehaviour m_PlaneAnchor;
@@ -73,8 +73,8 @@ public class PlaneManagerTest : MonoBehaviour
         m_PlaneFinder.HitTestMode = HitTestMode.AUTOMATIC;
 
         //m_ProductPlacement = FindObjectOfType<ProductPlacement>();
-        m_TGOProductPlacement = m_TGOAugmentation.GetComponentInChildren<ProductPlacement>();
-        m_BEPIProductPlacement = m_BEPIAugmentation.GetComponentInChildren<ProductPlacement>();
+        m_TGOProductPlacement = FindObjectOfType<TGOProductPlacement>();
+        m_BEPIProductPlacement = FindObjectOfType<BEPIProductPlacement>();
         m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
         m_GroundPlaneUI = FindObjectOfType<GroundPlaneTestUI>();
 
