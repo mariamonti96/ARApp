@@ -61,8 +61,8 @@ public class GroundPlaneTestUI : MonoBehaviour
         m_TrackerStatus.text = "";
         m_TrackerStatusImage = m_TrackerStatus.GetComponentInParent<Image>();
 
-        m_TGOProductPlacement = m_TGOAugmentation.GetComponent<ProductPlacement>();
-        m_BEPIProductPlacement = m_BEPIAugmentation.GetComponent<ProductPlacement>();
+        m_TGOProductPlacement = m_TGOAugmentation.GetComponentInChildren<ProductPlacement>();
+        m_BEPIProductPlacement = m_BEPIAugmentation.GetComponentInChildren<ProductPlacement>();
         m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
 
         m_GraphicRayCaster = FindObjectOfType<GraphicRaycaster>();
