@@ -618,7 +618,7 @@ Transform:
   m_Children:
   - {fileID: 2102273461}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &345118255
 GameObject:
@@ -1060,7 +1060,7 @@ Transform:
   m_Children:
   - {fileID: 599301767}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &571923454
 GameObject:
@@ -1567,7 +1567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: faa501f20b46e42a1929e40edb571cab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.25
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa501f20b46e42a1929e40edb571cab, type: 3}
@@ -1616,11 +1616,6 @@ MonoBehaviour:
   m_RotationIndicator: {fileID: 1391374682}
   Floor: {fileID: 1157200376}
   ProductSize: 1
---- !u!1 &882138227 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: faa501f20b46e42a1929e40edb571cab,
-    type: 3}
-  m_PrefabInternal: {fileID: 882138221}
 --- !u!1 &963199396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,8 +2755,8 @@ MonoBehaviour:
   m_ResetButton: {fileID: 1012216901}
   m_TGOToggle: {fileID: 1406753187}
   m_BEPIToggle: {fileID: 1057485840}
-  m_TGOAugmentation: {fileID: 2114370148}
-  m_BEPIAugmentation: {fileID: 882138227}
+  m_TGOAugmentation: {fileID: 2114370150}
+  m_BEPIAugmentation: {fileID: 882138224}
 --- !u!4 &1439771673
 Transform:
   m_ObjectHideFlags: 0
@@ -2774,7 +2769,7 @@ Transform:
   m_Children:
   - {fileID: 345118256}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576449070
 GameObject:
@@ -3130,7 +3125,7 @@ Transform:
   - {fileID: 571923455}
   - {fileID: 353697432}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664235125
 GameObject:
@@ -3298,8 +3293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlaneFinder: {fileID: 1719651574}
-  m_BEPIAugmentation: {fileID: 882138227}
-  m_TGOAugmentation: {fileID: 2114370148}
+  m_BEPIAugmentation: {fileID: 882138224}
+  m_TGOAugmentation: {fileID: 2114370150}
 --- !u!4 &1708226882
 Transform:
   m_ObjectHideFlags: 0
@@ -3312,7 +3307,7 @@ Transform:
   m_Children:
   - {fileID: 1719651576}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1719651572
 GameObject:
@@ -3902,11 +3897,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a9a383960ab45e6a3af8e756c22d19, type: 3}
   m_IsPrefabAsset: 0
---- !u!1 &2114370148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: 39a9a383960ab45e6a3af8e756c22d19,
-    type: 3}
-  m_PrefabInternal: {fileID: 2114370147}
 --- !u!4 &2114370149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 39a9a383960ab45e6a3af8e756c22d19,
