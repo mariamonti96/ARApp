@@ -77,7 +77,7 @@ public class BEPIProductPlacement : MonoBehaviour
                         m_PlacementAugmentationScale,
                         m_PlacementAugmentationScale);
 
-        gameObject.transform.localScale = ProductScaleVector;
+        //gameObject.transform.localScale = ProductScaleVector;
     }
 
 
