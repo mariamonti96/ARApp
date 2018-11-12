@@ -7,7 +7,7 @@ countries.
 
 using UnityEngine;
 
-public class TouchHandlerTest : MonoBehaviour
+public class BEPITouchHandlerTest : MonoBehaviour
 {
     #region PUBLIC_MEMBERS
 
@@ -127,5 +127,5 @@ public class TouchHandlerTest : MonoBehaviour
     }
 
     #endregion // PRIVATE_METHODS
-
+    
 }

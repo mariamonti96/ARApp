@@ -8,7 +8,7 @@ countries.
 using UnityEngine;
 using Vuforia;
 
-public class ProductPlacement : MonoBehaviour
+public class TGOProductPlacement : MonoBehaviour
 {
 
     #region PUBLIC_MEMBERS
@@ -70,14 +70,14 @@ public class ProductPlacement : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        m_PlacementAugmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : ProductSize;
+        //m_PlacementAugmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : ProductSize;
 
-        ProductScaleVector =
-            new Vector3(m_PlacementAugmentationScale,
-                        m_PlacementAugmentationScale,
-                        m_PlacementAugmentationScale);
+        //ProductScaleVector =
+        //    new Vector3(m_PlacementAugmentationScale,
+        //                m_PlacementAugmentationScale,
+        //                m_PlacementAugmentationScale);
 
-        gameObject.transform.localScale = ProductScaleVector;
+        //gameObject.transform.localScale = ProductScaleVector;
     }
 
 
@@ -85,9 +85,8 @@ public class ProductPlacement : MonoBehaviour
     {
         //if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.PLACEMENT)
         //{
+            objectRenderer.enabled = (IsPlaced);
         
-        objectRenderer.enabled = (IsPlaced);
-        Debug.Log("Inside ProductPlacement Update");
         //EnablePreviewModeTransparency(!IsPlaced);
         //if (!IsPlaced)
         //    UtilityHelperRes.RotateTowardCamera(gameObject);
@@ -97,16 +96,16 @@ public class ProductPlacement : MonoBehaviour
         //    shadowRenderer.enabled = chairRenderer.enabled = IsPlaced;
         //}
         
-        if (IsPlaced)
+        if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.TGO && IsPlaced)
         {
             
             m_RotationIndicator.SetActive(Input.touchCount == 2);
             Debug.Log("Input.touchCount is " + Input.touchCount);
             Debug.Log("Is RotationIndicator active?" + m_RotationIndicator.activeSelf);
             m_TranslationIndicator.SetActive(
-                (TouchHandlerTest.IsSingleFingerDragging || TouchHandlerTest.IsSingleFingerStationary) && !m_GroundPlaneUI.IsCanvasButtonPressed());
+                (TGOTouchHandlerTest.IsSingleFingerDragging || TGOTouchHandlerTest.IsSingleFingerStationary) && !m_GroundPlaneUI.IsCanvasButtonPressed());
 
-            if (TouchHandlerTest.IsSingleFingerDragging || (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0)))
+            if (TGOTouchHandlerTest.IsSingleFingerDragging || (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0)))
             {
                 if (!m_GroundPlaneUI.IsCanvasButtonPressed())
                 {
@@ -127,7 +126,7 @@ public class ProductPlacement : MonoBehaviour
         {
             
             m_RotationIndicator.SetActive(false);
-            Debug.Log("Setting RotationIndicator to false");
+           
             m_TranslationIndicator.SetActive(false);
         }
 

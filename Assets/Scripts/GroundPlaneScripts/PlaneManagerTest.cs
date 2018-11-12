@@ -11,15 +11,22 @@ using Vuforia;
 
 public class PlaneManagerTest : MonoBehaviour
 {
-    
+    public enum PlaneMode
+    {
+        TGO,
+        BEPI        
+    }
+
     #region PUBLIC_MEMBERS
     public PlaneFinderBehaviour m_PlaneFinder;
-    
+
     [Header("Plane, Mid-Air, & Placement Augmentations")]
     //public GameObject m_PlaneAugmentation;
-    public GameObject m_PlacementAugmentation;
-    public static bool GroundPlaneHitReceived, AstronautIsPlaced;
-    
+    public GameObject m_BEPIAugmentation;
+    public GameObject m_TGOAugmentation;
+    public static bool GroundPlaneHitReceived;
+    public static PlaneMode planeMode = PlaneMode.BEPI;
+
     public static bool AnchorExists
     {
         get { return anchorExists; }
@@ -39,11 +46,15 @@ public class PlaneManagerTest : MonoBehaviour
     SmartTerrain m_SmartTerrain;
     PositionalDeviceTracker m_PositionalDeviceTracker;
     ContentPositioningBehaviour m_ContentPositioningBehaviour;
-    TouchHandlerTest m_TouchHandler;
-    ProductPlacement m_ProductPlacement;
+    TGOTouchHandlerTest m_TGOTouchHandler;
+    BEPITouchHandlerTest m_BEPITouchHandler;
+
+    TGOProductPlacement m_TGOProductPlacement;
+    BEPIProductPlacement m_BEPIProductPlacement;
+
     GroundPlaneTestUI m_GroundPlaneUI;
-    AnchorBehaviour m_PlaneAnchor;
-    AnchorBehaviour m_PlacementAnchor;
+    //AnchorBehaviour m_PlaneAnchor;
+    AnchorBehaviour m_TGOAnchor, m_BEPIAnchor;
     int AutomaticHitTestFrameCount;
     int m_AnchorCounter;
     bool uiHasBeenInitialized;
@@ -62,18 +73,23 @@ public class PlaneManagerTest : MonoBehaviour
 
         m_PlaneFinder.HitTestMode = HitTestMode.AUTOMATIC;
 
-        m_ProductPlacement = FindObjectOfType<ProductPlacement>();
-        m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
+        //m_ProductPlacement = FindObjectOfType<ProductPlacement>();
+        m_TGOProductPlacement = FindObjectOfType<TGOProductPlacement>();
+        m_BEPIProductPlacement = FindObjectOfType<BEPIProductPlacement>();
+        m_TGOTouchHandler = FindObjectOfType<TGOTouchHandlerTest>();
+        m_BEPITouchHandler = FindObjectOfType<BEPITouchHandlerTest>();
         m_GroundPlaneUI = FindObjectOfType<GroundPlaneTestUI>();
 
         //m_PlaneAnchor = m_PlaneAugmentation.GetComponentInParent<AnchorBehaviour>();
         //m_MidAirAnchor = m_MidAirAugmentation.GetComponentInParent<AnchorBehaviour>();
-        m_PlacementAnchor = m_PlacementAugmentation.GetComponentInParent<AnchorBehaviour>();
+        m_TGOAnchor = m_TGOAugmentation.GetComponentInParent<AnchorBehaviour>();
+        m_BEPIAnchor = m_BEPIAugmentation.GetComponentInParent<AnchorBehaviour>();
         //m_MidAirAnchor2 = m_MidAirAugmentation2.GetComponentInParent<AnchorBehaviour>();
 
         //UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, false);
         //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation, false);
-        UtilityHelperTest.EnableRendererColliderCanvas(m_PlacementAugmentation, false);
+        UtilityHelperTest.EnableRendererColliderCanvas(m_TGOAugmentation, false);
+        UtilityHelperTest.EnableRendererColliderCanvas(m_BEPIAugmentation, false);
         //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation2, false);
     }
 
@@ -87,7 +103,7 @@ public class PlaneManagerTest : MonoBehaviour
         GroundPlaneHitReceived = (AutomaticHitTestFrameCount == Time.frameCount);
 
         SetSurfaceIndicatorVisible(GroundPlaneHitReceived && (Input.touchCount == 0));
-        //SetSurfaceIndicatorVisible(GroundPlaneHitReceived);
+        
     }
 
     void OnDestroy()
@@ -121,11 +137,17 @@ public class PlaneManagerTest : MonoBehaviour
         //    m_PlacementAugmentation.PositionAt(result.Position);
         //}
 
-        if (!m_ProductPlacement.IsPlaced)
+        if (planeMode == PlaneMode.TGO && !m_TGOProductPlacement.IsPlaced)
         {
             SetSurfaceIndicatorVisible(false);
-            m_ProductPlacement.SetProductAnchor(null);
-            m_PlacementAugmentation.PositionAt(result.Position);
+            m_TGOProductPlacement.SetProductAnchor(null);
+            m_TGOAugmentation.PositionAt(result.Position);
+        }
+        else if(planeMode == PlaneMode.BEPI && !m_BEPIProductPlacement.IsPlaced)
+        {
+            SetSurfaceIndicatorVisible(false);
+            m_BEPIProductPlacement.SetProductAnchor(null);
+            m_BEPIAugmentation.PositionAt(result.Position);
         }
     }
 
@@ -149,45 +171,44 @@ public class PlaneManagerTest : MonoBehaviour
             m_ContentPositioningBehaviour.DuplicateStage = false;
 
             // Place object based on Ground Plane mode
-            //switch (planeMode)
-            //{
-            //    case PlaneMode.GROUND:
-
-            //        m_ContentPositioningBehaviour.AnchorStage = m_PlaneAnchor;
-            //        m_ContentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
-            //        UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, true);
-
-            //         // Astronaut should rotate toward camera with each placement
-
-
-            //        m_PlaneAugmentation.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-            //        //m_PlaneAugmentation.transform.parent.localEulerAngles = new Vector3(0, -90, 0);
-            //        UtilityHelperTest.RotateTowardCamera(m_PlaneAugmentation);
-
-            //        Debug.Log("Transform " + m_PlaneAugmentation.transform.rotation.y);
-            
-
-            //        AstronautIsPlaced = true;
-
-            //        break;
-
-                  //case PlaneMode.PLACEMENT:
-
-            if (!m_ProductPlacement.IsPlaced || TouchHandlerTest.DoubleTap)
+            switch (planeMode)
             {
-                m_ContentPositioningBehaviour.AnchorStage = m_PlacementAnchor;
-                m_ContentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
-                UtilityHelperTest.EnableRendererColliderCanvas(m_PlacementAugmentation, true);
-            }
+                case PlaneMode.TGO:
 
-            if (!m_ProductPlacement.IsPlaced)
-            {
-                m_ProductPlacement.SetProductAnchor(m_PlacementAnchor.transform);
-                m_TouchHandler.enableRotation = true;
-            }
+                    if (!m_TGOProductPlacement.IsPlaced || TGOTouchHandlerTest.DoubleTap)
+                    {
+                        m_ContentPositioningBehaviour.AnchorStage = m_TGOAnchor;
+                        m_ContentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
+                        UtilityHelperTest.EnableRendererColliderCanvas(m_TGOAugmentation, true);
+                    }
 
-            //break;
-        //}
+                    if (!m_TGOProductPlacement.IsPlaced)
+                    {
+                        m_TGOProductPlacement.SetProductAnchor(m_TGOAnchor.transform);
+                        m_TGOTouchHandler.enableRotation = true;
+                        m_BEPITouchHandler.enableRotation = false;
+                    }
+
+                    break;
+
+                case PlaneMode.BEPI:
+
+                    if (!m_BEPIProductPlacement.IsPlaced || BEPITouchHandlerTest.DoubleTap)
+                    {
+                        m_ContentPositioningBehaviour.AnchorStage = m_BEPIAnchor;
+                        m_ContentPositioningBehaviour.PositionContentAtPlaneAnchor(result);
+                        UtilityHelperTest.EnableRendererColliderCanvas(m_BEPIAugmentation, true);
+                    }
+
+                    if (!m_BEPIProductPlacement.IsPlaced)
+                    {
+                        m_BEPIProductPlacement.SetProductAnchor(m_BEPIAnchor.transform);
+                        m_BEPITouchHandler.enableRotation = true;
+                        m_TGOTouchHandler.enableRotation = false;
+                    }
+
+                    break;
+            }
         }
     }
 
@@ -211,15 +232,17 @@ public class PlaneManagerTest : MonoBehaviour
 
     #region PUBLIC_BUTTON_METHODS
 
-    public void SetGroundMode(bool active)
+    public void SetTGOMode(bool active)
     {
         if (active)
         {
-            //planeMode = PlaneMode.GROUND;
+            Debug.Log("Setting Plane Mode to TGO");
+            planeMode = PlaneMode.TGO;
             //m_GroundPlaneUI.UpdateTitle();
             m_PlaneFinder.enabled = true;
             //m_MidAirPositioner.enabled = false;
-            //m_TouchHandler.enableRotation = false;
+            m_TGOTouchHandler.enableRotation = m_TGOAugmentation.activeInHierarchy;
+            m_BEPITouchHandler.enableRotation = false;
         }
     }
 
@@ -235,17 +258,18 @@ public class PlaneManagerTest : MonoBehaviour
     //    }
     //}
 
-    public void SetPlacementMode(bool active)
+    public void SetBEPIMode(bool active)
     {
         if (active)
         {
-            //planeMode = PlaneMode.PLACEMENT;
+            Debug.Log("Setting Plane Mode to BEPI");
+            planeMode = PlaneMode.BEPI;
             //m_GroundPlaneUI.UpdateTitle();
             m_PlaneFinder.enabled = true;
             //m_MidAirPositioner.enabled = false;
-            m_TouchHandler.enableRotation = m_PlacementAugmentation.activeInHierarchy;
-            if (m_PlacementAugmentation.activeInHierarchy)
-                Debug.Log("the placement is active");
+            m_BEPITouchHandler.enableRotation = m_BEPIAugmentation.activeInHierarchy;
+            m_TGOTouchHandler.enableRotation = false;
+            
         }
     }
 
@@ -262,16 +286,21 @@ public class PlaneManagerTest : MonoBehaviour
         //m_MidAirAugmentation.transform.localEulerAngles = Vector3.zero;
         //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation, false);
 
-        m_ProductPlacement.Reset();
-        UtilityHelperTest.EnableRendererColliderCanvas(m_PlacementAugmentation, false);
+        m_TGOProductPlacement.Reset();
+        UtilityHelperTest.EnableRendererColliderCanvas(m_TGOAugmentation, false);
+
+        m_BEPIProductPlacement.Reset();
+        UtilityHelperTest.EnableRendererColliderCanvas(m_BEPIAugmentation, false);
 
         DeleteAnchors();
-        m_ProductPlacement.SetProductAnchor(null);
+        m_TGOProductPlacement.SetProductAnchor(null);
+        m_BEPIProductPlacement.SetProductAnchor(null);
         //AstronautIsPlaced = false;
         m_GroundPlaneUI.Reset();
         //SetGroundMode(true);
         
-        m_TouchHandler.enableRotation = false;
+        m_TGOTouchHandler.enableRotation = false;
+        m_BEPITouchHandler.enableRotation = false;
         //SetPlacementMode(true);
     }
 
@@ -298,7 +327,8 @@ public class PlaneManagerTest : MonoBehaviour
     {
         //m_PlaneAnchor.UnConfigureAnchor();
         //m_MidAirAnchor.UnConfigureAnchor();
-        m_PlacementAnchor.UnConfigureAnchor();
+        m_TGOAnchor.UnConfigureAnchor();
+        m_BEPIAnchor.UnConfigureAnchor();
         //m_MidAirAnchor2.UnConfigureAnchor();
         AnchorExists = DoAnchorsExist();
     }
