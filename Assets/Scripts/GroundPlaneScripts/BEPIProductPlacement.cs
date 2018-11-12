@@ -21,7 +21,7 @@ public class BEPIProductPlacement : MonoBehaviour
 
     [Header("Placement Augmentation Size Range")]
     [Range(0.1f, 2.0f)]
-    public float ProductSize = 0.1f;
+    public float ProductSize = 0.01f;
     #endregion // PUBLIC_MEMBERS
 
 
@@ -77,7 +77,7 @@ public class BEPIProductPlacement : MonoBehaviour
                         m_PlacementAugmentationScale,
                         m_PlacementAugmentationScale);
 
-        //gameObject.transform.localScale = ProductScaleVector;
+        gameObject.transform.localScale = ProductScaleVector;
     }
 
 
