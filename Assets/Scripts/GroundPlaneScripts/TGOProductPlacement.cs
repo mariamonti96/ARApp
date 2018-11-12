@@ -85,9 +85,8 @@ public class TGOProductPlacement : MonoBehaviour
     {
         //if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.PLACEMENT)
         //{
+            objectRenderer.enabled = (IsPlaced);
         
-        objectRenderer.enabled = (IsPlaced);
-        Debug.Log("Inside ProductPlacement Update");
         //EnablePreviewModeTransparency(!IsPlaced);
         //if (!IsPlaced)
         //    UtilityHelperRes.RotateTowardCamera(gameObject);
@@ -97,7 +96,7 @@ public class TGOProductPlacement : MonoBehaviour
         //    shadowRenderer.enabled = chairRenderer.enabled = IsPlaced;
         //}
         
-        if (IsPlaced)
+        if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.TGO && IsPlaced)
         {
             
             m_RotationIndicator.SetActive(Input.touchCount == 2);

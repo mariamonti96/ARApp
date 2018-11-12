@@ -234,6 +234,7 @@ public class PlaneManagerTest : MonoBehaviour
     {
         if (active)
         {
+            Debug.Log("Setting Plane Mode to TGO");
             planeMode = PlaneMode.TGO;
             //m_GroundPlaneUI.UpdateTitle();
             m_PlaneFinder.enabled = true;
@@ -259,6 +260,7 @@ public class PlaneManagerTest : MonoBehaviour
     {
         if (active)
         {
+            Debug.Log("Setting Plane Mode to BEPI");
             planeMode = PlaneMode.BEPI;
             //m_GroundPlaneUI.UpdateTitle();
             m_PlaneFinder.enabled = true;

@@ -23,8 +23,8 @@ public class GroundPlaneTestUI : MonoBehaviour
     public Button m_ResetButton;
     public Toggle m_TGOToggle, m_BEPIToggle;
 
-    public GameObject m_TGOAugmentation;
-    public GameObject m_BEPIAugmentation;
+    //public GameObject m_TGOAugmentation;
+    //public GameObject m_BEPIAugmentation;
     //public Toggle m_PlacementToggle, m_GroundToggle, m_MidAirToggle, m_MidAirToggle2;
     #endregion // PUBLIC_MEMBERS
 
@@ -167,9 +167,7 @@ public class GroundPlaneTestUI : MonoBehaviour
         m_ResetButton.interactable = false;
         //PlaneManagerTest.SetGroundMode();
 
-
-
-        m_TGOToggle.isOn = true;
+        m_BEPIToggle.isOn = true;
     }
 
     //public void UpdateTitle()
@@ -210,7 +208,7 @@ public class GroundPlaneTestUI : MonoBehaviour
 
 
         // Make the PlacementToggle active
-        m_TGOToggle.isOn = true;
+        m_BEPIToggle.isOn = true;
 
         return true;
     }

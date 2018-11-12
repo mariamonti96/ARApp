@@ -21,7 +21,7 @@ public class BEPIProductPlacement : MonoBehaviour
 
     [Header("Placement Augmentation Size Range")]
     [Range(0.1f, 2.0f)]
-    public float ProductSize = 1.0f;
+    public float ProductSize = 0.1f;
     #endregion // PUBLIC_MEMBERS
 
 
@@ -83,11 +83,10 @@ public class BEPIProductPlacement : MonoBehaviour
 
     void Update()
     {
-        //if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.PLACEMENT)
-        //{
-        
-        objectRenderer.enabled = (IsPlaced);
-        Debug.Log("Inside ProductPlacement Update");
+
+       
+            objectRenderer.enabled = (IsPlaced);
+          
         //EnablePreviewModeTransparency(!IsPlaced);
         //if (!IsPlaced)
         //    UtilityHelperRes.RotateTowardCamera(gameObject);
@@ -97,7 +96,7 @@ public class BEPIProductPlacement : MonoBehaviour
         //    shadowRenderer.enabled = chairRenderer.enabled = IsPlaced;
         //}
         
-        if (IsPlaced)
+        if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.BEPI && IsPlaced)
         {
             
             m_RotationIndicator.SetActive(Input.touchCount == 2);
@@ -147,7 +146,7 @@ public class BEPIProductPlacement : MonoBehaviour
     {
         if (transform)
         {
-            //Debug.Log("Setting IsPlaced to true");
+            Debug.Log("BEPI is placed");
             IsPlaced = true;
             gameObject.transform.SetParent(transform);
             gameObject.transform.localPosition = Vector3.zero;
