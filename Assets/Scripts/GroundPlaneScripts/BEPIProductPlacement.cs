@@ -70,14 +70,14 @@ public class BEPIProductPlacement : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        m_PlacementAugmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : ProductSize;
+        //m_PlacementAugmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : ProductSize;
 
-        ProductScaleVector =
-            new Vector3(m_PlacementAugmentationScale,
-                        m_PlacementAugmentationScale,
-                        m_PlacementAugmentationScale);
+        //ProductScaleVector =
+        //    new Vector3(m_PlacementAugmentationScale,
+        //                m_PlacementAugmentationScale,
+        //                m_PlacementAugmentationScale);
 
-        gameObject.transform.localScale = ProductScaleVector;
+        //gameObject.transform.localScale = ProductScaleVector;
     }
 
 
