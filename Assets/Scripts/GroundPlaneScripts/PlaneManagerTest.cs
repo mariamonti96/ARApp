@@ -242,7 +242,7 @@ public class PlaneManagerTest : MonoBehaviour
             m_PlaneFinder.enabled = true;
             //m_MidAirPositioner.enabled = false;
             m_TGOTouchHandler.enableRotation = m_TGOAugmentation.activeInHierarchy;
-            
+            m_BEPITouchHandler.enableRotation = false;
         }
     }
 
@@ -268,6 +268,7 @@ public class PlaneManagerTest : MonoBehaviour
             m_PlaneFinder.enabled = true;
             //m_MidAirPositioner.enabled = false;
             m_BEPITouchHandler.enableRotation = m_BEPIAugmentation.activeInHierarchy;
+            m_TGOTouchHandler.enableRotation = false;
             
         }
     }
