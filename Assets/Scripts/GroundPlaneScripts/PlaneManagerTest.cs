@@ -25,7 +25,7 @@ public class PlaneManagerTest : MonoBehaviour
     public GameObject m_BEPIAugmentation;
     public GameObject m_TGOAugmentation;
     public static bool GroundPlaneHitReceived;
-    public static PlaneMode planeMode = PlaneMode.TGO;
+    public static PlaneMode planeMode = PlaneMode.BEPI;
 
     public static bool AnchorExists
     {
