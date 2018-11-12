@@ -186,6 +186,7 @@ public class PlaneManagerTest : MonoBehaviour
                     {
                         m_TGOProductPlacement.SetProductAnchor(m_TGOAnchor.transform);
                         m_TGOTouchHandler.enableRotation = true;
+                        m_BEPITouchHandler.enableRotation = false;
                     }
 
                     break;
@@ -203,6 +204,7 @@ public class PlaneManagerTest : MonoBehaviour
                     {
                         m_BEPIProductPlacement.SetProductAnchor(m_BEPIAnchor.transform);
                         m_BEPITouchHandler.enableRotation = true;
+                        m_TGOTouchHandler.enableRotation = false;
                     }
 
                     break;
