@@ -57,8 +57,9 @@ public class GroundPlaneTestUI : MonoBehaviour
         //        m_MidAirToggle2.interactable = false;
         m_ResetButton.interactable = false;
         m_TGOToggle.interactable = false;
-        m_BEPIToggle.interactable = false;
+        m_BEPIToggle.interactable = true;
 
+        m_BEPIToggle.isOn = true;
         //m_Title.text = TITLE_PLACEMENT;
         m_TrackerStatus.text = "";
         m_TrackerStatusImage = m_TrackerStatus.GetComponentInParent<Image>();
