@@ -104,9 +104,9 @@ public class BEPIProductPlacement : MonoBehaviour
             Debug.Log("Input.touchCount is " + Input.touchCount);
             Debug.Log("Is RotationIndicator active?" + m_RotationIndicator.activeSelf);
             m_TranslationIndicator.SetActive(
-                (TouchHandlerTest.IsSingleFingerDragging || TouchHandlerTest.IsSingleFingerStationary) && !m_GroundPlaneUI.IsCanvasButtonPressed());
+                (BEPITouchHandlerTest.IsSingleFingerDragging || BEPITouchHandlerTest.IsSingleFingerStationary) && !m_GroundPlaneUI.IsCanvasButtonPressed());
 
-            if (TouchHandlerTest.IsSingleFingerDragging || (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0)))
+            if (BEPITouchHandlerTest.IsSingleFingerDragging || (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0)))
             {
                 if (!m_GroundPlaneUI.IsCanvasButtonPressed())
                 {

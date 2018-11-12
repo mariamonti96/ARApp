@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731196, g: 0.38074002, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1338,8 +1338,8 @@ GameObject:
   - component: {fileID: 882138223}
   - component: {fileID: 882138228}
   - component: {fileID: 882138226}
-  - component: {fileID: 882138225}
   - component: {fileID: 882138227}
+  - component: {fileID: 882138225}
   m_Layer: 0
   m_Name: BEPI
   m_TagString: Untagged
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 882138224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465b0c5bd58c31c4d9c40ed09cb8a990, type: 3}
+  m_Script: {fileID: 11500000, guid: bd8b3b7ce5a919e45935cb67b6490e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AugmentationObject: {fileID: 882138223}
@@ -3124,7 +3124,6 @@ GameObject:
   - component: {fileID: 1719651575}
   - component: {fileID: 1719651574}
   - component: {fileID: 1719651573}
-  - component: {fileID: 1719651577}
   m_Layer: 0
   m_Name: Plane Finder
   m_TagString: Untagged
@@ -3240,25 +3239,6 @@ Transform:
   m_Father: {fileID: 1708226882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1719651577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1719651572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 2020821747, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AnchorStage: {fileID: 472867129}
-  DuplicateStage: 0
-  OnContentPlaced:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Vuforia.ContentPlacedEvent, Vuforia.UnityExtensions, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  mDisplayAdvanced: 1
 --- !u!1 &1728286845
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,7 +41,9 @@ public class GroundPlaneTestUI : MonoBehaviour
 
     TGOProductPlacement m_TGOProductPlacement;
     BEPIProductPlacement m_BEPIProductPlacement;
-    TouchHandlerTest m_TouchHandler;
+
+    TGOTouchHandlerTest m_TGOTouchHandler;
+    BEPITouchHandlerTest m_BEPITouchHandler;
 
     Image m_TrackerStatusImage;
     #endregion // PRIVATE_MEMBERS
@@ -63,7 +65,9 @@ public class GroundPlaneTestUI : MonoBehaviour
 
         m_TGOProductPlacement = FindObjectOfType<TGOProductPlacement>();
         m_BEPIProductPlacement = FindObjectOfType<BEPIProductPlacement>();
-        m_TouchHandler = FindObjectOfType<TouchHandlerTest>();
+
+        m_TGOTouchHandler = FindObjectOfType<TGOTouchHandlerTest>();
+        m_BEPITouchHandler = FindObjectOfType<BEPITouchHandlerTest>();
 
         m_GraphicRayCaster = FindObjectOfType<GraphicRaycaster>();
         m_EventSystem = FindObjectOfType<EventSystem>();
