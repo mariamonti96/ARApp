@@ -146,7 +146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -143.4037, y: 1.5559235}
+  m_AnchoredPosition: {x: -179.6, y: 1.5559235}
   m_SizeDelta: {x: 10.24, y: 10.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31394705
@@ -1152,7 +1152,7 @@ Prefab:
     - target: {fileID: 114683823855548470, guid: 356d9770fafda4666a5b89318a156f6f,
         type: 2}
       propertyPath: m_Text
-      value: ESA Spacecraft AR
+      value: ESA Main Control Room AR
       objectReference: {fileID: 0}
     - target: {fileID: 1125208401490670, guid: 356d9770fafda4666a5b89318a156f6f, type: 2}
       propertyPath: m_IsActive
@@ -3995,7 +3995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4, y: -61.2}
+  m_AnchoredPosition: {x: 4, y: -57.6}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1392905533
@@ -4481,7 +4481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4, y: -59.3}
+  m_AnchoredPosition: {x: -4, y: -58.7}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1629604351

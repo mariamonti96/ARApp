@@ -126,7 +126,7 @@ public class SamplesMainMenuTest : MonoBehaviour
 
     //    LoadingScreen.SceneToLoad = "3-" + menuItem.ToString();
 
-    //    AboutTitle.text = aboutScreenInfo.GetTitle(menuItem.ToString());
+    //    AboutTitle.text = .GetTitle(menuItem.ToString());
     //    AboutDescription.text = aboutScreenInfo.GetDescription(menuItem.ToString());
 
     //    AboutCanvas.transform.parent.transform.position = Vector3.zero; // move canvas into position
