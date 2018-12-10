@@ -16,17 +16,20 @@ public class WorldMapManager : MonoBehaviour
     ObjectPlacement m_TGOPlacement;
     ObjectPlacement m_ESAPlacement;
     InputField pathText;
+    UpdateWorldMappingStatus script;
     string path;
 
     // Use this for initialization
     void Start ()
     {
+        script = FindObjectOfType<UpdateWorldMappingStatus>();
         UnityARSessionNativeInterface.ARFrameUpdatedEvent += OnFrameUpdate;
         pathText = FindObjectOfType<InputField>();
+        Debug.Log("How many times?");
 
         pathText.onEndEdit.AddListener(SetPath);
 
-        m_TGOPlacement = GameObject.Find("TGO/default").GetComponent<ObjectPlacement>();
+        //m_TGOPlacement = GameObject.Find("TGO/default").GetComponent<ObjectPlacement>();
         //m_ESAPlacement = GameObject.Find("ESA_icon").GetComponent<ObjectPlacement>();
     }
 
@@ -36,10 +39,12 @@ public class WorldMapManager : MonoBehaviour
     {
         if (arCamera.trackingReason != m_LastReason)
         {
+           
             Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.None);
             Debug.LogFormat("worldTransform: {0}", arCamera.worldTransform.column3);
             Debug.LogFormat("trackingState: {0} {1}", arCamera.trackingState, arCamera.trackingReason);
             m_LastReason = arCamera.trackingReason;
+            StartCoroutine(script.ShowPopup());
         }
     }
 
