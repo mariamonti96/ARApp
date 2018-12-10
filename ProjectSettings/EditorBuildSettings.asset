@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0-Splash.unity
     guid: 8501f881064712d4cb37da194e52f8da
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/1-MenuTest.unity
     guid: 164395e4da54142cd96a408ddcae9e6f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2-Loading.unity
     guid: 04c8ffb695927c547a771b6b928e6678
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SpacecraftAR.unity
     guid: f0d2686e037fe8248ba429ba159bcb17
   - enabled: 0
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainControlRoomAR.unity
     guid: 15384af7e3ffc410a835838e1ba93ca9
+  - enabled: 1
+    path: Assets/UnityARKitPlugin/Examples/ARKit2.0/UnityARWorldMap/ARKitTest.unity
+    guid: 583e0950f0b9942a9bdf1e38435bd1d9
   m_configObjects: {}
