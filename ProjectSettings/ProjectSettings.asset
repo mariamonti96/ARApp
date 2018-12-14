@@ -860,9 +860,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 20f4f332-9e09-4b79-b45e-b4229a201de5
-  projectName: ARApp
-  organizationId: mariamonti
+  cloudProjectId: 4e32c404-1389-4080-9782-4c4eeddcf5c2
+  projectName: ARApp (1)
+  organizationId: mariamonti96
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
