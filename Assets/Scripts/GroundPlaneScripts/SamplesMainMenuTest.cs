@@ -177,7 +177,7 @@ public class SamplesMainMenuTest : MonoBehaviour
         //        break;
         //}
         switch(itemSelected){
-            case ("SpacecraftAR"):
+            case ("SpacecraftAr"):
                 menuItem = MenuItem.SpacecraftAR;
                 break;
             
