@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TGOPlacement : MonoBehaviour
-{
+public class ObjectPlacement : MonoBehaviour {
 
     #region PUBLIC_MEMBERS
     public bool IsPlaced { get; private set; }
@@ -11,7 +10,7 @@ public class TGOPlacement : MonoBehaviour
     #endregion //PUBLIC_MEMBERS
 
     #region PRIVATE_MEMBERS
-    //Material objectMaterial;
+
     MeshRenderer objectRenderer;
 
     ARKitProjectUI m_ARKitProjectUI;
@@ -20,22 +19,18 @@ public class TGOPlacement : MonoBehaviour
 
     #region MONOBEHAVIOUR_METHODS
     // Use this for initialization
-    void Start()
-    {
+    void Start () {
 
         objectRenderer = GetComponent<MeshRenderer>();
-        //objectMaterial = Resources.Load<objectMaterial>("defaultMat");
 
         m_ARKitProjectUI = FindObjectOfType<ARKitProjectUI>();
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
+	
+	// Update is called once per frame
+	void Update () {
         objectRenderer.enabled = IsPlaced;
-
-    }
+	}
 
     #endregion //MONOBEHAVIOUR_METHODS
 
@@ -50,10 +45,11 @@ public class TGOPlacement : MonoBehaviour
 
     public void placeObject(Vector3 position, Quaternion rotation)
     {
+        
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         IsPlaced = true;
-
+      
     }
     #endregion //PUBLIC_METHODS
 

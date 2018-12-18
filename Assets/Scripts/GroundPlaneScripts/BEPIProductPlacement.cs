@@ -52,15 +52,7 @@ public class BEPIProductPlacement : MonoBehaviour
         objectRenderer = GetComponent<MeshRenderer>();
 
         objectMaterial = Resources.Load<Material>("defaultMat");
-        
-        //chairMaterialsTransparent = new Material[]
-        //{
-        //    Resources.Load<Material>("ChairBodyTransparent"),
-        //    Resources.Load<Material>("ChairFrameTransparent")
-        //};
 
-        //ChairShadow = Resources.Load<Material>("ChairShadow");
-        //ChairShadowTransparent = Resources.Load<Material>("ChairShadowTransparent");
 
         m_GroundPlaneUI = FindObjectOfType<GroundPlaneTestUI>();
 
@@ -70,14 +62,6 @@ public class BEPIProductPlacement : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        //m_PlacementAugmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : ProductSize;
-
-        //ProductScaleVector =
-        //    new Vector3(m_PlacementAugmentationScale,
-        //                m_PlacementAugmentationScale,
-        //                m_PlacementAugmentationScale);
-
-        //gameObject.transform.localScale = ProductScaleVector;
     }
 
 
@@ -86,16 +70,7 @@ public class BEPIProductPlacement : MonoBehaviour
 
        
             objectRenderer.enabled = (IsPlaced);
-          
-        //EnablePreviewModeTransparency(!IsPlaced);
-        //if (!IsPlaced)
-        //    UtilityHelperRes.RotateTowardCamera(gameObject);
-        //}
-        //else
-        //{
-        //    shadowRenderer.enabled = chairRenderer.enabled = IsPlaced;
-        //}
-        
+
         if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.BEPI && IsPlaced)
         {
             
@@ -161,15 +136,6 @@ public class BEPIProductPlacement : MonoBehaviour
     #endregion // PUBLIC_METHODS
 
 
-    #region PRIVATE_METHODS
-    //void EnablePreviewModeTransparency(bool previewEnabled)
-    //{
-    //    if (!previewEnabled)
-    //    {
-    //        objectRenderer.material = objectMaterial;
-    //    }
-    //    //shadowRenderer.material = previewEnabled ? ChairShadowTransparent : ChairShadow;
-    //}
-    #endregion // PRIVATE_METHODS
+
 
 }

@@ -48,11 +48,7 @@ namespace UnityEngine.XR.iOS
         // Use this for initialization
         void Start()
         {
-            //m_ObjectPlacement = FindObjectOfType<ObjectPlacement>();
-            //m_ESAPlacement = FindObjectOfType<TGOPlacement>();
-            //m_TGOPlacement = GameObject.Find("TGO/default").GetComponent<ObjectPlacement>();
-            //m_ESAPlacement = GameObject.Find("ESA_icon").GetComponent<ObjectPlacement>();
-            
+
             m_ARKitProjectUI = FindObjectOfType<ARKitProjectUI>();
             
         }
@@ -128,13 +124,6 @@ namespace UnityEngine.XR.iOS
                 foreach(var hitResult in hitResults)
                 {
                     Debug.Log("Got Hit!");
-                    //This was used in the original UnityARHitTestExample,
-                    //but we want to have multiple objects placed based on toggles
-                    // so we will change it
-                    
-                    //m_HitTransform.position = UnityARMatrixOps.GetPosition(hitResult.worldTransform);
-                    //m_HitTransform.rotation = UnityARMatrixOps.GetRotation(hitResult.worldTransform);
-                    //Debug.Log(string.Format("x:{0:0.######} y:{1:0.######} z:{2:0.######", m_HitTransform.position.x, m_HitTransform.position.y, m_HitTransform.position.z));
 
                     var position = UnityARMatrixOps.GetPosition(hitResult.worldTransform);
                     var rotation = UnityARMatrixOps.GetRotation(hitResult.worldTransform);
@@ -228,9 +217,10 @@ namespace UnityEngine.XR.iOS
 
         #region PUBLIC_BUTTON_METHODS
 
-        //ESAToggle -> ESA Mode
-        //Adds one instance of the ESA logo in the position
-        //the user touched
+        //INVToggle -> INV Mode
+        //Adds invisible squares with the InvisibleMask shader 
+        //in the point touched by the user
+        //These will not be rendered but will occlude the objects behind them
         public void SetINVMode(bool active)
         {
             if (active)
@@ -263,8 +253,8 @@ namespace UnityEngine.XR.iOS
             }
         }
 
-        //TGOToggle -> TGO Mode
-        //Adds one instance of the TGO spacecraft
+        //OB1Toggle -> OB1 Mode
+        //Adds one instance of the first object
         //in the position the user touched
         public void SetOB1Mode(bool active)
         {
@@ -279,7 +269,9 @@ namespace UnityEngine.XR.iOS
             }
         }
         
-
+        //OB2Toggle -> OB2 Mode
+        //Adds one instance of the second object
+        //in the position the user touched
         public void SetOB2Mode(bool active)
         {
             if(active)
@@ -293,19 +285,10 @@ namespace UnityEngine.XR.iOS
             }
         }
 
-        //Add public void ResetScene() and ResetTrackers()?
+        //Add public void ResetScene()?
 
 
         #endregion //PUBLIC_BUTTON_METHODS
-
-
-        //#region PRIVATE_BUTTON_METHODS
-        //private GameObject SpawnESA_icon()
-        //{
-        //    return (GameObject)Instantiate(ESA_icon_prefab);
-        //}
-
-        //#endregion //PRIVATE_BUTTON_METHODS
 
 
     }

@@ -13,8 +13,7 @@ public class WorldMapManager : MonoBehaviour
     ARWorldMap m_LoadedMap;
 
 	serializableARWorldMap serializedWorldMap;
-    ObjectPlacement m_TGOPlacement;
-    ObjectPlacement m_ESAPlacement;
+
     InputField pathText;
     string path;
 
@@ -26,8 +25,7 @@ public class WorldMapManager : MonoBehaviour
 
         pathText.onEndEdit.AddListener(SetPath);
 
-        m_TGOPlacement = GameObject.Find("TGO/default").GetComponent<ObjectPlacement>();
-        //m_ESAPlacement = GameObject.Find("ESA_icon").GetComponent<ObjectPlacement>();
+       
     }
 
     ARTrackingStateReason m_LastReason;
@@ -48,15 +46,7 @@ public class WorldMapManager : MonoBehaviour
         get { return UnityARSessionNativeInterface.GetARSessionNativeInterface(); }
     }
 
-    //static string path
-    //{
-    //    get { return Path.Combine(Application.persistentDataPath, "myFirstWorldMap.worldmap"); }
-    //}
 
-    // string path
-    //{
-    //    get { return Path.Combine(Application.persistentDataPath, pathText.text); }
-    //}
 
     void SetPath(string arg0)
     {
@@ -103,9 +93,7 @@ public class WorldMapManager : MonoBehaviour
                 var config = m_ARCameraManager.sessionConfiguration;
                 config.worldMap = worldMap;
                 UnityARSessionRunOption runOption = UnityARSessionRunOption.ARSessionRunOptionRemoveExistingAnchors | UnityARSessionRunOption.ARSessionRunOptionResetTracking;
-                //m_TGOPlacement.Reset();
-                //m_ESAPlacement.Reset();
-                
+
                 Debug.Log("Restarting session with worldMap");
                 session.RunWithConfigAndOptions(config, runOption);
 

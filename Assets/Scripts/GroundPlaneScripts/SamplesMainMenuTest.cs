@@ -17,14 +17,9 @@ public class SamplesMainMenuTest : MonoBehaviour
     {
 
         SpacecraftAR,
-        ARKitTest
+        MainControlRoomAR
     }
 
-    public Canvas AboutCanvas;
-    public Text AboutTitle;
-    public Text AboutDescription;
-
-    public static bool isAboutScreenVisible;
 
     // initialize static enum with one of the items
     public static MenuItem menuItem = MenuItem.SpacecraftAR;
@@ -32,160 +27,37 @@ public class SamplesMainMenuTest : MonoBehaviour
     public const string MenuScene = "1-Menu";
     public const string LoadingScene = "2-Loading";
 
-    AboutScreenInfo aboutScreenInfo;
-
     #endregion // PUBLIC_MEMBERS
 
-    #region MONOBEHAVIOUR_METHODS
-
-    void Start()
-    {
-        // reset about screen state variable to false when returning from AR scene
-        isAboutScreenVisible = false;
-
-        if (aboutScreenInfo == null)
-        {
-            // initialize if null
-            aboutScreenInfo = new AboutScreenInfo();
-        }
-    }
-
-    #endregion // MONOBEHAVIOUR_METHODS
-
+  
     #region PUBLIC_METHODS
 
-    public static string GetSceneToLoad()
-    {
-        // called by SamplesLoadingScreen to load selected AR scene
-        return "3-" + menuItem.ToString();
-    }
 
     public static void LoadScene(string scene)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
     }
 
-    public void BackToMenu()
-    {
-        // called to return to Menu from About screen
-        AboutCanvas.sortingOrder = 0;
-        isAboutScreenVisible = false;
-    }
-
-    //public void LoadAboutScene(string itemSelected)
-    //{
-    //    UpdateConfiguration(itemSelected);
-
-    //    // This method called from list of Sample App menu buttons
-    //    switch (itemSelected)
-    //    {
-    //        case ("ImageTargets"):
-    //            menuItem = MenuItem.ImageTargets;
-    //            break;
-    //        case ("ModelTargets"):
-    //            menuItem = MenuItem.ModelTargets;
-    //            break;
-    //        case ("GroundPlane"):
-    //            menuItem = MenuItem.GroundPlane;
-    //            break;
-    //        case ("VuMark"):
-    //            menuItem = MenuItem.VuMark;
-    //            break;
-    //        case ("CloudReco"):
-    //            menuItem = MenuItem.CloudReco;
-    //            break;
-    //        case ("ObjectReco"):
-    //            menuItem = MenuItem.ObjectReco;
-    //            break;
-    //        case ("MultiTargets"):
-    //            menuItem = MenuItem.MultiTargets;
-    //            break;
-    //        case ("CylinderTargets"):
-    //            menuItem = MenuItem.CylinderTargets;
-    //            break;
-    //        case ("UserDefinedTargets"):
-    //            menuItem = MenuItem.UserDefinedTargets;
-    //            break;
-    //        case ("VirtualButtons"):
-    //            menuItem = MenuItem.VirtualButtons;
-    //            break;
-    //        case ("GroundPlaneSample"):
-    //            menuItem = MenuItem.GroundPlaneSample;
-    //            break;
-    //    }
-
-    //    LoadingScreen.SceneToLoad = "3-" + menuItem.ToString();
-
-    //    AboutTitle.text = .GetTitle(menuItem.ToString());
-    //    AboutDescription.text = aboutScreenInfo.GetDescription(menuItem.ToString());
-
-    //    AboutCanvas.transform.parent.transform.position = Vector3.zero; // move canvas into position
-    //    AboutCanvas.sortingOrder = 2; // bring canvas in front of main menu
-    //    isAboutScreenVisible = true;
-
-    //}
 
     public void LoadSelectedScene(string itemSelected)
     {
         UpdateConfiguration(itemSelected);
 
-        //// This method called from list of Sample App menu buttons
-        //switch (itemSelected)
-        //{
-        //    case ("ImageTargets"):
-        //        menuItem = MenuItem.ImageTargets;
-        //        break;
-        //    case ("ModelTargets"):
-        //        menuItem = MenuItem.ModelTargets;
-        //        break;
-        //    case ("GroundPlane"):
-        //        menuItem = MenuItem.GroundPlane;
-        //        break;
-        //    case ("VuMark"):
-        //        menuItem = MenuItem.VuMark;
-        //        break;
-        //    case ("CloudReco"):
-        //        menuItem = MenuItem.CloudReco;
-        //        break;
-        //    case ("ObjectReco"):
-        //        menuItem = MenuItem.ObjectReco;
-        //        break;
-        //    case ("MultiTargets"):
-        //        menuItem = MenuItem.MultiTargets;
-        //        break;
-        //    case ("CylinderTargets"):
-        //        menuItem = MenuItem.CylinderTargets;
-        //        break;
-        //    case ("UserDefinedTargets"):
-        //        menuItem = MenuItem.UserDefinedTargets;
-        //        break;
-        //    case ("VirtualButtons"):
-        //        menuItem = MenuItem.VirtualButtons;
-        //        break;
-        //    case ("GroundPlaneSample"):
-        //        menuItem = MenuItem.GroundPlaneSample;
-        //        break;
-        //}
+
         switch(itemSelected){
             case ("SpacecraftAR"):
                 menuItem = MenuItem.SpacecraftAR;
-                //LoadScene("SpacecraftAR");
+
                 break;
             
             case  ("MainControlRoomAR"):
-                menuItem = MenuItem.ARKitTest;
-                //LoadScene("ARKitTest");
+                menuItem = MenuItem.MainControlRoomAR;
+
                 break;
         }
 
         LoadingScreen.SceneToLoad = menuItem.ToString();
 
-        //AboutTitle.text = aboutScreenInfo.GetTitle(menuItem.ToString());
-        //AboutDescription.text = aboutScreenInfo.GetDescription(menuItem.ToString());
-
-        AboutCanvas.transform.parent.transform.position = Vector3.zero; // move canvas into position
-        AboutCanvas.sortingOrder = 2; // bring canvas in front of main menu
-        isAboutScreenVisible = true;
 
     }
 

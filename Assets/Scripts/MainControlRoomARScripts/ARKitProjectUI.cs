@@ -16,8 +16,7 @@ public class ARKitProjectUI : MonoBehaviour
 
     #endregion //PUBLIC_MEMBERS
 
-    //#region PRIVATE_MEMBERS
-    //#endregion //PRIVATE_MEMBERS
+
     PointerEventData m_PointerEventData;
     PointerEventData m_PointerEventDataNew;
     EventSystem m_EventSystem;
@@ -49,8 +48,6 @@ public class ARKitProjectUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // When to enable the toggle?
-
         //Check if ObjectPlacement.isPlaced is true. If it is then enable the reset button.
     }
 
@@ -63,17 +60,6 @@ public class ARKitProjectUI : MonoBehaviour
         //When reset button is clicked!!
 
     }
-
-    //public bool InitializeUI()
-    //{
-    //    m_TGOToggle.interactable = true;
-
-    //    //Should you turn the toggle on? Which one? 
-    //    m_TGOToggle.isOn = true;
-    //    return true;
-    //}
-
-    //maybe add "public bool IsCanvasButtonPressed" to make sure that the objects are not moved when pressing a canvas button?
 
     public bool IsCanvasButtonPressed()
     {
@@ -115,28 +101,7 @@ public class ARKitProjectUI : MonoBehaviour
         }
         Debug.Log("No ObjectPlacement");
         return null;
-        //Debug.Log("I AM INSIDE GET GAMEOBJECT PRESSED");
-        //m_PointerEventDataNew = new PointerEventData(m_EventSystem)
-        //{
-        //    position = Input.mousePosition
-        //};
-        //List<RaycastResult> resultsNew = new List<RaycastResult>();
-        //m_GraphicRaycaster.Raycast(m_PointerEventDataNew, resultsNew);
 
-        //Debug.Log("bla" + resultsNew);
-
-        //foreach (RaycastResult result in resultsNew)
-        //{
-        //    if (result.gameObject.GetComponent<ObjectPlacement>())
-        //    {
-        //        Debug.Log("The Game Object has component ObjectPlacement");
-        //        return result.gameObject;
-                
-        //    }
-        //    Debug.Log("The Game Object DOES NOT have component ObjectPlacement");
-        //}
-        ////Debug.Log("No RayCastResult list?");
-        //return null;
     }
 
     

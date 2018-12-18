@@ -204,7 +204,7 @@ MonoBehaviour:
           m_StringArgument: SpacecraftAR
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 708239517}
+      - m_Target: {fileID: 708239520}
         m_MethodName: OnStartAR
         m_Mode: 1
         m_Arguments:
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 708239518}
+      - m_Target: {fileID: 0}
         m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
@@ -752,8 +752,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708239516}
-  - component: {fileID: 708239518}
-  - component: {fileID: 708239517}
   - component: {fileID: 708239519}
   - component: {fileID: 708239521}
   - component: {fileID: 708239520}
@@ -781,33 +779,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &708239517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 11402820, guid: 24175ecc27f6f4bb090fa48e95bf175a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 708239515}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 911feb003f67c4fb79a75b51b493d03d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &708239518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 11410170, guid: 24175ecc27f6f4bb090fa48e95bf175a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 708239515}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 998f0e4c862a246099d6777c43f2e64e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AboutCanvas: {fileID: 1223317694}
-  AboutTitle: {fileID: 2108330732}
-  AboutDescription: {fileID: 1799602617}
 --- !u!114 &708239519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,9 +813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9311dd00384b445ecb88b192f854b6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AboutCanvas: {fileID: 1223317694}
-  AboutTitle: {fileID: 2108330732}
-  AboutDescription: {fileID: 1799602617}
 --- !u!1 &902592764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,7 +1326,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 708239517}
+      - m_Target: {fileID: 0}
         m_MethodName: OnStartAR
         m_Mode: 1
         m_Arguments:

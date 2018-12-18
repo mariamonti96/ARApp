@@ -27,10 +27,9 @@ public class TGOProductPlacement : MonoBehaviour
 
     #region PRIVATE_MEMBERS
     Material objectMaterial;
-    //Material ChairShadow, ChairShadowTransparent;
+
     MeshRenderer objectRenderer;
-    //[SerializeField]
-    //MeshRenderer shadowRenderer;
+
 
     const string EmulatorGroundPlane = "Emulator Ground Plane";
 
@@ -53,15 +52,7 @@ public class TGOProductPlacement : MonoBehaviour
 
         objectMaterial = Resources.Load<Material>("defaultMat");
         
-        //chairMaterialsTransparent = new Material[]
-        //{
-        //    Resources.Load<Material>("ChairBodyTransparent"),
-        //    Resources.Load<Material>("ChairFrameTransparent")
-        //};
-
-        //ChairShadow = Resources.Load<Material>("ChairShadow");
-        //ChairShadowTransparent = Resources.Load<Material>("ChairShadowTransparent");
-
+       
         m_GroundPlaneUI = FindObjectOfType<GroundPlaneTestUI>();
 
         // Enable floor collider if running on device; Disable if running in PlayMode
@@ -70,32 +61,16 @@ public class TGOProductPlacement : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        //m_PlacementAugmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : ProductSize;
 
-        //ProductScaleVector =
-        //    new Vector3(m_PlacementAugmentationScale,
-        //                m_PlacementAugmentationScale,
-        //                m_PlacementAugmentationScale);
-
-        //gameObject.transform.localScale = ProductScaleVector;
     }
 
 
     void Update()
     {
-        //if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.PLACEMENT)
-        //{
-            objectRenderer.enabled = (IsPlaced);
+
+        objectRenderer.enabled = (IsPlaced);
         
-        //EnablePreviewModeTransparency(!IsPlaced);
-        //if (!IsPlaced)
-        //    UtilityHelperRes.RotateTowardCamera(gameObject);
-        //}
-        //else
-        //{
-        //    shadowRenderer.enabled = chairRenderer.enabled = IsPlaced;
-        //}
-        
+
         if (PlaneManagerTest.planeMode == PlaneManagerTest.PlaneMode.TGO && IsPlaced)
         {
             
@@ -139,7 +114,7 @@ public class TGOProductPlacement : MonoBehaviour
     {
         transform.position = Vector3.zero;
         transform.localEulerAngles = Vector3.zero;
-        //transform.localScale = ProductScaleVector;
+       
     }
 
     public void SetProductAnchor(Transform transform)
@@ -161,15 +136,6 @@ public class TGOProductPlacement : MonoBehaviour
     #endregion // PUBLIC_METHODS
 
 
-    #region PRIVATE_METHODS
-    //void EnablePreviewModeTransparency(bool previewEnabled)
-    //{
-    //    if (!previewEnabled)
-    //    {
-    //        objectRenderer.material = objectMaterial;
-    //    }
-    //    //shadowRenderer.material = previewEnabled ? ChairShadowTransparent : ChairShadow;
-    //}
-    #endregion // PRIVATE_METHODS
+   
 
 }

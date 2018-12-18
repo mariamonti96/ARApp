@@ -21,7 +21,7 @@ public class PlaneManagerTest : MonoBehaviour
     public PlaneFinderBehaviour m_PlaneFinder;
 
     [Header("Plane, Mid-Air, & Placement Augmentations")]
-    //public GameObject m_PlaneAugmentation;
+
     public GameObject m_BEPIAugmentation;
     public GameObject m_TGOAugmentation;
     public static bool GroundPlaneHitReceived;
@@ -73,24 +73,17 @@ public class PlaneManagerTest : MonoBehaviour
 
         m_PlaneFinder.HitTestMode = HitTestMode.AUTOMATIC;
 
-        //m_ProductPlacement = FindObjectOfType<ProductPlacement>();
-        m_TGOProductPlacement = FindObjectOfType<TGOProductPlacement>();
+         m_TGOProductPlacement = FindObjectOfType<TGOProductPlacement>();
         m_BEPIProductPlacement = FindObjectOfType<BEPIProductPlacement>();
         m_TGOTouchHandler = FindObjectOfType<TGOTouchHandlerTest>();
         m_BEPITouchHandler = FindObjectOfType<BEPITouchHandlerTest>();
         m_GroundPlaneUI = FindObjectOfType<GroundPlaneTestUI>();
 
-        //m_PlaneAnchor = m_PlaneAugmentation.GetComponentInParent<AnchorBehaviour>();
-        //m_MidAirAnchor = m_MidAirAugmentation.GetComponentInParent<AnchorBehaviour>();
-        m_TGOAnchor = m_TGOAugmentation.GetComponentInParent<AnchorBehaviour>();
+         m_TGOAnchor = m_TGOAugmentation.GetComponentInParent<AnchorBehaviour>();
         m_BEPIAnchor = m_BEPIAugmentation.GetComponentInParent<AnchorBehaviour>();
-        //m_MidAirAnchor2 = m_MidAirAugmentation2.GetComponentInParent<AnchorBehaviour>();
-
-        //UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, false);
-        //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation, false);
         UtilityHelperTest.EnableRendererColliderCanvas(m_TGOAugmentation, false);
         UtilityHelperTest.EnableRendererColliderCanvas(m_BEPIAugmentation, false);
-        //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation2, false);
+
     }
 
     void Update()
@@ -130,12 +123,6 @@ public class PlaneManagerTest : MonoBehaviour
             uiHasBeenInitialized = m_GroundPlaneUI.InitializeUI();
         }
 
-        //if (planeMode == PlaneMode.PLACEMENT && !m_ProductPlacement.IsPlaced)
-        //{
-        //    SetSurfaceIndicatorVisible(false);
-        //    m_ProductPlacement.SetProductAnchor(null);
-        //    m_PlacementAugmentation.PositionAt(result.Position);
-        //}
 
         if (planeMode == PlaneMode.TGO && !m_TGOProductPlacement.IsPlaced)
         {
@@ -166,8 +153,7 @@ public class PlaneManagerTest : MonoBehaviour
 
             // If the PlaneFinderBehaviour's Mode is Automatic, then the Interactive HitTestResult will be centered.
 
-            // PlaneMode.Ground and PlaneMode.Placement both use PlaneFinder's ContentPositioningBehaviour
-            m_ContentPositioningBehaviour = m_PlaneFinder.GetComponent<ContentPositioningBehaviour>();
+             m_ContentPositioningBehaviour = m_PlaneFinder.GetComponent<ContentPositioningBehaviour>();
             m_ContentPositioningBehaviour.DuplicateStage = false;
 
             // Place object based on Ground Plane mode
@@ -212,20 +198,6 @@ public class PlaneManagerTest : MonoBehaviour
         }
     }
 
-    //public void PlaceObjectInMidAir(Transform midAirTransform)
-    //{
-    //    if (planeMode == PlaneMode.MIDAIR)
-    //    {
-    //        Debug.Log("PlaceObjectInMidAir() called.");
-
-    //        m_ContentPositioningBehaviour.AnchorStage = m_MidAirAnchor;
-    //        m_ContentPositioningBehaviour.PositionContentAtMidAirAnchor(midAirTransform);
-    //        UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation, true);
-
-    //        m_MidAirAugmentation.transform.localPosition = Vector3.zero;
-    //        UtilityHelper.RotateTowardCamera(m_MidAirAugmentation);
-    //    }
-    //}
 
     #endregion // GROUNDPLANE_CALLBACKS
 
@@ -246,18 +218,6 @@ public class PlaneManagerTest : MonoBehaviour
         }
     }
 
-    //public void SetMidAirMode(bool active)
-    //{
-    //    if (active)
-    //    {
-    //        planeMode = PlaneMode.MIDAIR;
-    //        m_GroundPlaneUI.UpdateTitle();
-    //        m_PlaneFinder.enabled = false;
-    //        m_MidAirPositioner.enabled = true;
-    //        m_TouchHandler.enableRotation = false;
-    //    }
-    //}
-
     public void SetBEPIMode(bool active)
     {
         if (active)
@@ -277,15 +237,6 @@ public class PlaneManagerTest : MonoBehaviour
     {
         Debug.Log("ResetScene() called.");
 
-        // reset augmentations
-        //m_PlaneAugmentation.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
-        //m_PlaneAugmentation.transform.localEulerAngles = new Vector3(0, 0, 0);
-        //UtilityHelperTest.EnableRendererColliderCanvas(m_PlaneAugmentation, false);
-
-        //m_MidAirAugmentation.transform.position = Vector3.zero;
-        //m_MidAirAugmentation.transform.localEulerAngles = Vector3.zero;
-        //UtilityHelper.EnableRendererColliderCanvas(m_MidAirAugmentation, false);
-
         m_TGOProductPlacement.Reset();
         UtilityHelperTest.EnableRendererColliderCanvas(m_TGOAugmentation, false);
 
@@ -295,13 +246,12 @@ public class PlaneManagerTest : MonoBehaviour
         DeleteAnchors();
         m_TGOProductPlacement.SetProductAnchor(null);
         m_BEPIProductPlacement.SetProductAnchor(null);
-        //AstronautIsPlaced = false;
+
         m_GroundPlaneUI.Reset();
-        //SetGroundMode(true);
-        
+
         m_TGOTouchHandler.enableRotation = false;
         m_BEPITouchHandler.enableRotation = false;
-        //SetPlacementMode(true);
+       
     }
 
     public void ResetTrackers()
@@ -325,11 +275,10 @@ public class PlaneManagerTest : MonoBehaviour
 
     void DeleteAnchors()
     {
-        //m_PlaneAnchor.UnConfigureAnchor();
-        //m_MidAirAnchor.UnConfigureAnchor();
-        m_TGOAnchor.UnConfigureAnchor();
+
+       m_TGOAnchor.UnConfigureAnchor();
         m_BEPIAnchor.UnConfigureAnchor();
-        //m_MidAirAnchor2.UnConfigureAnchor();
+
         AnchorExists = DoAnchorsExist();
     }
 
