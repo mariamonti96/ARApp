@@ -15,19 +15,9 @@ public class SamplesMainMenuTest : MonoBehaviour
 
     public enum MenuItem
     {
-        //ImageTargets,
-        //ModelTargets,
-        //GroundPlane,
-        //VuMark,
-        //CloudReco,
-        //ObjectReco,
-        //MultiTargets,
-        //CylinderTargets,
-        //UserDefinedTargets,
-        //VirtualButtons,
-        //GroundPlaneSample
+
         SpacecraftAR,
-        MainControlRoomAR
+        ARKitTest
     }
 
     public Canvas AboutCanvas;
@@ -177,12 +167,14 @@ public class SamplesMainMenuTest : MonoBehaviour
         //        break;
         //}
         switch(itemSelected){
-            case ("SpacecraftAr"):
+            case ("SpacecraftAR"):
                 menuItem = MenuItem.SpacecraftAR;
+                //LoadScene("SpacecraftAR");
                 break;
             
             case  ("MainControlRoomAR"):
-                menuItem = MenuItem.MainControlRoomAR;
+                menuItem = MenuItem.ARKitTest;
+                //LoadScene("ARKitTest");
                 break;
         }
 

@@ -4,6 +4,7 @@
 		Tags{ "Queue" = "Geometry+1" }
 		Pass{
 			Blend Zero One // keep the image behind it
+            Offset -1, -1
 		}
 	}
 }
